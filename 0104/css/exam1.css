@@ -1,0 +1,54 @@
+@charset "UTF-8";
+
+*{margin: 0; padding: 0;}
+
+.photo{
+  width: 400px;
+  text-align: center;
+  float: left;
+}
+.photo::after{
+  clear: both;
+  content: "";
+  display: block;
+}
+
+.photo>img{
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.photo > ul{
+  display: block;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: space-around;
+  padding-top: 20px;
+}
+.photo ul > li{
+  display: block;
+  width: 70px;
+  height: 70px;
+  list-style: none;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.photo ul li img{
+  display: block;
+  width: 100%;
+  object-fit: cover;
+  overflow: hidden;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+.photo ul li:first-of-type > img{
+  border: 3px solid orangered;
+}
+
+/* .photo ul li img:hover{
+  transform: scale(1.1);
+  border-radius: 20px;
+} */

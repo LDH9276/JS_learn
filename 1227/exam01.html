@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>슬라이드 배너 예제</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+  <style>
+    article{
+      width: 720px; height: 290px;
+      position: relative;
+    }
+    .fa-angle-left{
+      position: absolute;
+      left: 0; top: 100px;
+      padding: 20px;
+      color: #FFF;
+      background-color: rgba(0, 0, 0, .6);
+      font-size: 40px;
+    }
+    .fa-angle-right{
+      position: absolute;
+      padding: 20px;
+      color: #FFF;
+      background-color: rgba(0, 0, 0, .6);
+      right: 0; top:100px;
+      font-size: 40px;
+    }
+    article img{
+      object-fit: cover;
+    }
+    #page{
+      position: absolute;
+      bottom:10px; right: 10px;
+      color: orangered;
+    }
+  </style>
+
+</head>
+<body>
+  <h2>슬라이드 배너 예제</h2>
+  <dl>
+    <dt>구현순서</dt>
+    <dd>banner 영역을 만들고 이미지 태그요소를 사용하여 첫번째 이미지를 삽입.</dd>
+    <dd>아이콘 폰트를 활용하여 좌, 우 끝에 방향표시 버튼을 만든다.</dd>
+    <dd>자바스크립트에서 neximg, previmg 함수를 각각 작성하여 총 이미지개수 4장을 초과하지 않도록 조건식을 작성한다.</dd>
+    <dd>좌, 우 버튼에 이벤트를 사용하여 각각 클릭하면 해당함수가 호출되게 하고 이미지, 해당번호가 표시되게 한다.</dd>
+  </dl>
+
+
+
+  <article>
+  <span id="page">&nbsp;</span>
+  <i class="fas fa-angle-left" onclick="prevImg()"></i>
+  <i class="fas fa-angle-right" onclick="nextImg()"></i>
+  <div>
+    <img src="./img/banner1.jpg" alt="책 1" id="book">
+  </div>
+  <script>
+        //5. 좌, 우 방향을 클릭시 해당 함수가 호출되게 하여 1씩 증가, 감소하게 하기
+        let n = 1; //초기값
+        document.getElementById('page').innerHTML=n+' / 5';
+
+        //증가하는 함수
+        function nextImg(){
+          if(n==5){
+            n = 1;
+          }else{
+            n++;
+          }
+          document.getElementById('page').innerHTML=n+' / 5';
+          document.getElementById('book').src="./img/banner"+n+".jpg"
+        };
+
+        //감소하는 함수
+        function prevImg(){
+          if(n==1){
+            n = 5;
+          }else{
+            n--;
+          }
+          document.getElementById('page').innerHTML=n+' / 5';
+          document.getElementById('book').src="./img/banner"+n+".jpg"
+        }
+
+        let Timer = setInterval(nextImg, 3000);
+  </script>
+  </article>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS event(이벤트) p.540</title>
+  <style>
+    .tap_color *{margin: 0; padding: 0;}
+    .tap_color{width: 300px;}
+    .tap_color ul {display: flex;}
+    .tap_color li {
+      width: 33.3%;
+      list-style: none;
+      border-bottom: 1px solid #777;
+      line-height: 40px;
+      text-align: center;
+    }
+    #result{height: 400px; border: 1px solid #777}
+
+  </style>
+
+
+
+</head>
+<body>
+  <h2>02 event(이벤트)</h2>
+  <p>event : 특별한 상황, 사건, 행사</p>
+  <p>웹페이지에서는 '클릭', '오버', '아웃', '드래그', '더블클릭', '스크롤', '키보드' 등의 행위를 했을 때 일어나는 사건을 이벤트라고 한다.
+  </p>
+
+  <dl>
+    <dt>이벤트의 종류</dt>
+    <dd>onclick() : 마우스를 클릭했을 때 이벤트 발생.</dd>
+    <dd>ondbclick() : 마우스를 더블클릭 했을 때 이벤트 발생.</dd>
+    <dd>onkeydown() : 키보드를 눌렀을 때 이벤트 발생</dd>
+    <dd>onkeypress() : 키보드를 눌렀다 땠을 때 이벤트 발생</dd>
+    <dd>onkeyup() : 키보드를 놓았을 때 이벤트 발생</dd>
+    <dd>onmousedown() : 마우스로 버튼을 눌렀을 때 이벤트 발생</dd>
+    <dd>onmouseup() : 마우스로 버튼을 놓았을 때 이벤트 발생</dd>
+    <dd>onmouseover() : 마우스로 버튼에 올렸을 때 이벤트 발생</dd>
+    <dd>onmouseout() : 마우스로 버튼에 올렸다가 떼었을 때 이벤트 발생</dd>
+  </dl>
+
+  <h3>마우스 오버시 다른 이미지로 대체</h3>
+  <img src="./images/mbn04.png" alt="main" id="js-main-img">
+
+  <input type="button" value="이미지 변경" onclick="imgChange01()">
+  <input type="button" value="이미지 원래대로" onclick="imgChange02()">
+
+  <h4>이벤트 사용방식 3가지</h4>
+  <p>사용자가 실제 이벤트를 발생시켰을 때 그 이벤트를 이용하여 처리하는 것을 '이벤트 핸들러'라고 합니다.</p>
+  <p>이벤트 핸들러는 앞에 'on'을 붙여주고 이벤트에 대한 동적함수를 처리합니다.</p>
+
+  <h4>1. 인라인 방식으로 이벤트 처리하기</h4>
+  <p>태그라 on이벤트명 = 자바스크립트 코드 예) div onclick="실행될 코드"</p>
+  <p>이미지 태그에 직접 onclick = "this.src"로 작성하여 실행.</p>
+
+  <h4>2. 고전방식</h4>
+  <p>객체 on이벤트명 = function(){실행될 코드}</p>
+  <p>객체 on이벤트명 = 함수명;function(){실행될 코드}</p>
+
+  <h4 id="title">3. 표준방식</h4>
+  <p>표준방식으로 위 제목을 클릭하면 메시지 창 띄우기</p>
+
+  <script>
+    const mainImg = document.getElementById('js-main-img');
+
+    mainImg.addEventListener('mouseover', function(){
+      mainImg.src='./images/mbn04ov.png';
+    });
+
+    mainImg.addEventListener('mouseout', function(){
+      mainImg.src='./images/mbn04.png';
+    })
+
+    // function imgChange01(){
+    //   mainImg.src='./images/mbn04ov.png';
+    // }
+    // function imgChange02(){
+    //   mainImg.src='./images/mbn04.png';
+    // }
+    
+
+    const title = document.getElementById('title');
+
+    // 사용자가 제목을 클릭시 해당 이벤트를 발생하게 하여 메시지를 띄운다.
+    // title.addEventListener('mouseout', function(){
+    //   alert('표준방식으로 이벤트를 처리했습니다.');
+    // });
+    // title.addEventListener('mouseover', function(){
+    //   alert('표준방식으로 이벤트를 처리했습니다. 2');
+    // });
+
+    function changeColor(color){
+      console.log(color);
+      document.getElementById('result').style.backgroundColor=color;
+    }
+
+  </script>
+
+<h4>4. 실습예제 - 탭 메뉴를 클릭시 해당 색상이 적용되게 하기 p. 543</h4>
+탭메뉴
+
+<article class="tap_color">
+<ul>
+  <li><a href="#" title="red" onclick="changeColor('red');">red</a></li>
+  <li><a href="#" title="green" onclick="changeColor('green');">green</a></li>
+  <li><a href="#" title="blue" onclick="changeColor('blue');">blue</a></li>
+</ul>
+<div id="result">이곳의 배경색이 변경됩니다.</div>
+</article>
+
+</body>
+</html>

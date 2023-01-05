@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>POP UP 예제</title>
+  <style>
+    *{margin: 0px; padding: 0px;}
+    div{width: 360px; height: 455px;}
+    div > img{display: block;}
+    div > p{
+      display: block;
+      background: #222;
+      line-height: 40px;
+      text-align: center;
+    }
+    button[type="button"]{
+      color: #FFF;
+      background: none;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <a href="#none" title="광고이미지">
+      <img src="./images/banner.jpg" alt="광고이미지">
+    </a>
+    <p><button type="button" onclick="window.close();">닫기</button></p>
+  </div>
+</body>
+</html>

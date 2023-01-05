@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01_변수(variable)</title>
+</head>
+<body>
+  <h2>변수(variable)</h2>
+  <p>변수란? : 변하는 데이터를 저장하기 위한 메모리 공간이다. 한번에 하나의 데이터만 담을 수 있으며, 맨 마지막에 저장된 데이터가 남는다.</p>
+  <p>변수는 전역, 지역변수가 있다.</p>
+  <p>변수선언시 var, const, let 키워드가 있다.</p>
+  <p>변명 작성시 규칙에 의해 작성한다.</p>
+
+  <h3>예제1 : 사용자가 입력한 이름과 지역명을 변수에 담아 내용출력해 보기</h3>
+  <p>예 ) 철수가 사는 지역은 서울 입니다.</p>
+
+  <div id="resert"></div>
+
+  <script>
+    // let yourName, yourLocation;
+
+    // yourName = prompt('당신의 이름은 무엇입니까?');
+    // yourLocation = prompt('당신의 사는 장소는 어디입니까?');
+
+    // document.write(`<h3>${yourName}가 사는 장소는 ${yourLocation} 입니다.</h3>`)
+
+    
+
+
+    //출력 예 ) 입력하신 ID는 000이고, PW는 000입니다.
+
+    // let id, pw;
+
+    // id = prompt('ID를 입력하세요.');
+    // pw = prompt('PW를 입력하세요.');
+
+    // document.getElementById('resert').innerHTML=`<p class="resert_txt">입력하신 id는 ${id} 이며, PW는 ${pw}입니다. </p>`
+  </script>
+
+  <h3>예제 2 : 태어난 연도를 입력하여 나이 계산하여 출력하기</h3>
+  <p>prompt명령어로 사용자가 태여난 년도를 입력할 수 있게 창의 띄우고 변수를 담는다.</p>
+  <p>현재년도 - 태어난년도 + 1 식을 계산하여 변수에 담는다.</p>
+  <p>계싼된 결과값을 출력한다.</p>
+
+  <script>
+    const thisYear = 2022;
+    let yourBirthYear;
+    let age;
+
+    yourBirthYear = prompt('태어난 연도를 입력하세요.');
+    age = thisYear - yourBirthYear + 1;
+
+    alert(`당신의 나이는 ${age}세 입니다.`);
+
+  </script>
+
+</body>
+</html>

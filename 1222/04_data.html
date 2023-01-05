@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="initial-scale=1.0">
+  <title>02_데이터 타입(유형) p.468</title>
+
+  <script>
+
+    //원시형 데이터
+    let s = '10';
+    let d = 10;
+    let f = true;
+    let g;
+    let h = null;
+
+    document.write(s + '<br>');
+    document.write(d + '<br>');
+    document.write(f + '<br>');
+    document.write(g + '<br>');
+    document.write(h + '<br>');
+
+    //데이터 타입 증명
+    document.write(`입력하신 데이터는${typeof g}입니다. <br>`);
+
+    //2. 참조형 데이터 - 한번에 여러가지 데이터를 배열할 때
+    let allNumbers = [10, 20, 30, 40, 50, 60, 70];
+    let weekendDay = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
+    weekendDay.push('sun');
+    console.log(weekendDay);
+    document.write(`오늘의 요일은 ${weekendDay[3]}입니다. <br>`)
+
+    let userInfo = ['홍길동', '23', '서울시 종로구 구기동 국일관 2층', '010-1111-1111']
+
+    document.write(`${userInfo[0]}님의 나이는 ${userInfo[1]}이며, 사는 곳은 ${userInfo[2]}이며, 전화번호는 ${userInfo[3]}입니다. <br>`)
+
+    //3. 함수형 데이터 - 미리 내용을 작성하여 사용자가 함수명을 사용했을 때 호출하면 프로그램이 실행.
+
+    function sam(){
+      alert('메롱')
+    };
+    //함수호출
+    sam();
+
+    //4. 사용자 객체
+    const person = {
+      'age' : '21',
+      'job' : '학생',
+      'height' : '185'
+    };
+
+    document.write(`나의 나이는 ${person.age}이고 키는${person.height}이며, 직업은 ${person.job}입니다. <br>`)
+
+    let iceCream = {
+      itemId : 15,
+      itemName : '초코 아이스크림 파인트',
+      itemValue : '9,800원',
+      itemSale : '15%',
+      itemIntro : '아이스크림 입니다.'
+    };
+
+    document.write(`이 상품은 ${iceCream.itemName} 이며, <br> 이 제품의 가격은 ${iceCream.itemValue}이며,<br>이 상품의 할인율은 ${iceCream.itemSale}, 이 제품의 설명은 ${iceCream.itemIntro}`)
+
+  </script>
+
+</head>
+<body>
+  <h2>02 데이터 타입(유형) p.468</h2>
+  <p>자바스크립트에서 사용하는 데이터 유형에 대해 알아보기</p>
+
+  <ul>
+    <li>문자 데이터형 (string)</li>
+    <li>숫자 데이터형 (number)</li>
+    <li>불린형 (boolean) true(참)/false(거짓)</li>
+    <li>찾을 수 없는 데이터형(undefined)</li>
+    <li>값이 없는 데이터(null)</li>
+    <li>배열형 데이터 (array)</li>
+    <li>함수형 데이터 (function)</li>
+    <li>객체(object) document/window/alert/confirm...</li>
+  </ul>
+
+  <p>typeof 연산자는 해당 데이터 타입이 무엇인지 나타난다. 각 데이터들은 원시형(기본형) 데이터라고 부른다.</p>
+</body>
+</html>

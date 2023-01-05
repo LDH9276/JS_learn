@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02_문서객체모델 속성(attribute)변경</title>
+  <link rel="stylesheet" href="./css/exam1.css">
+</head>
+<body>
+  <h2>02_문서객체모델 속성(attribute)변경</h2>
+  <p>웹문서에서 요소를 삽일 할 때 속성을 사용하여 입력하는 경우가 많다. 자바스크립트에서 사용자가 선택한 태그요소의 속성을 선택하고 설정을 변경하는 방법에 대해 알아보자.</p>
+  <ul>
+    <li>getAttribute('속성명')</li>
+    <li>setAttrubute('속성명')</li>
+  </ul>
+
+  <img src="./pic_bulboff.gif" alt="전구" id="bulb">
+
+  <section class="product">
+    <article class="photo">
+      <img src="./images2/photo01.jpg" alt="미리보기" id="big_img">
+
+      <ul id="gallary">
+        <li><img class="small" src="./images2/photo01.jpg" alt="1"></li>
+        <li><img class="small" src="./images2/photo02.jpg" alt="2"></li>
+        <li><img class="small" src="./images2/photo03.jpg" alt="3"></li>
+        <li><img class="small" src="./images2/photo04.jpg" alt="4"></li>
+        <li><img class="small" src="./images2/photo05.jpg" alt="5"></li>
+      </ul>
+    </article>
+    <article>
+      <h3>
+        <span>오늘 마감</span>
+        <p>(최대 40% 쿠폰) 머럴 해비다운 외 스포츠 특가</p>
+      </h3>
+      <p><span>10%</span> 151,200원~ <a href="#none" title="혜택보기">혜택보기</a></p>
+      <p><a href="#none" title="적립금">구매 전 적립금 5,000원 받기</a>
+        <a href="#none" title="적립금">카드 무이자 혜택보기 (최대 6개월)</a>
+      </p>
+
+    </article>
+
+  </section>
+
+  <script>
+    let bulb = document.getElementById('bulb');
+    let imgSrc = bulb.getAttribute('src');
+
+    bulb.addEventListener('click', function(){
+      this.setAttribute('src', './pic_bulbon.gif');
+      a=1;
+    })
+
+
+    let photo = document.getElementById('big_img');    
+    let smallImg = document.querySelectorAll('.small')
+
+    for (let i=0; i<smallImg.length; i++){
+      smallImg[i].addEventListener('click', changePic);
+      }//클릭하면 아래 함수를 출력
+    function changePic(){
+    let newPic = this.src;
+
+    //src값을 bigImg에 대응하여 변경하도록 변경
+    photo.setAttribute('src', newPic);
+
+    //서식적용
+    for(let j = 0; j<smallImg.length; j++){
+      smallImg[j].style.border="none";   
+      this.style.border="3px solid orangered";
+    }
+
+    }
+  </script>
+
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>연산자</title>
+  <script>
+    let a = 10;
+    let b = 5;
+
+    //1. 산수연산사
+    let resert = a + b; //15
+    document.write(resert + '<br>');
+
+    res = a % b;
+    document.write(res + '<br>');
+
+    res = a > b;
+    document.write(res + '<br>');
+    
+    res = a < b;
+    document.write(res + ' 5가 10보다 크기 때문에 false<br>');
+
+    res = a == b; //10이 5와 같다
+    document.write(res + ' 5와 10이 같지 않기 때문에 false <br>');
+
+    res = a = b; //A를 B에 대입하라
+    document.write(res + '5를 a에 대입했기 때문에 a는 5가 들어간다. <br>');
+
+    res = a+=b;
+    document.write(res + '앞서 대입한 5와 5를 더해 10을 출력 <br>');
+
+    res = ++a; // a에 1을 더한 뒤 변수에 저장하라
+    document.write(res + ' a에 1을 더해 11이 나온다 <br>');
+    // ++를 변수 앞에다 쓰면 먼저 1을 더하고 출력
+    // ++를 변수 뒤에 작성시 출력하고 1을 나중에 더한다.
+
+    console.log(1>3 && 3>2); //둘 다 만족할 경우에만 true
+    console.log(1>3 || 3>2); //둘 중 하나만 만족해도 true
+    console.log(1>3 != 3>2);
+
+    //6. 문자열 결합연산자
+    let c, d, e, f;
+    c = '웹퍼블리셔';
+    d = '프론트엔드';
+    e = 20221128;
+    f = 1;
+
+    document.write(c + d + e + '숫자와 문자가 겹치면 문자로 표시 <br>');
+    document.write(e + f + '숫자의 연산자와 겹치면 숫자로 표시 <br>');
+
+    //7. 상황조건 연산자 조건식? 실행문1:실행문2
+    //ex) 1>2?"조건식이 맞습니다.":"조건식이 틀립니다."
+
+    let id = prompt('아이디를 입력하세요.');
+    let pw = prompt('패스워드를 입력하세요.')
+
+    id == 'jeon'&&pw == 'jeon'?document.write('로그인 성공.'):document.write('로그인 실패.')
+  </script>
+</head>
+<body>
+  <h2>자바스크립트 연산자</h2>
+  <p>자바스크립트 연산자는 사용자가 조건식을 만들어서 원하는 결과를 출력하고자 할 때 사용하는 기호이다.</p>
+  <ul>
+    <li>산술연산자 : +, -, *, /, %(나머지)</li>
+    <li>문자열 결합 연산자 : +(문자 + 숫자, 문자 + 문자 일 경우)</li>
+    <li>비교연산자 : >, <, >=, <=, ==(값이 같다), ===(값, 형식 모두 같을 경우)</li>
+    <li>대입 연산자 : =, +=, -=</li>
+    <li>중감 연산자 : ++(1씩 증가), --(1씩 감소)</li>
+    <li>논리연산자 : &&, ||, !=</li>
+    <li>상황조건연산자 : 조건식 ?참일때 값 거짓일 때 값</li>
+    <li>타입연산자 : typeof</li>
+  </ul>
+  
+</body>
+</html>

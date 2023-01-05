@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>네이버 영화 실습 예제</title>
+  <!-- local css -->
+  <link rel="stylesheet" href="./css/gallary1.css">
+  <!-- swiper css -->
+  <link rel="stylesheet" href="./css/swiper.css">
+  <!-- Pretendard css -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css">
+  <!-- gallary js -->
+  <script src="./script/gallary-1.js" defer></script>
+  <!-- material icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0">
+</head>
+<body>
+  <section class="main">
+    <h2>영화정보</h2>
+    <article id="img_box">
+    <div class="txt_wrap">
+    <h2>바이센테니얼 맨</h2>
+      <p class="m_name">Bicentennial Man, 1999</p>
+      <p><span class="m_info01">개요</span> SF, 드라마 미국 133분 2000 .01.29 개봉</p>
+      <p><span class="m_info01">감독</span>크리스 콜럼버스</p>
+      <p><span class="m_info01">출연</span>로빈 윌리엄스(앤드류 마틴)</p>
+      <p><span class="m_info01">등급</span>[국내] 전체 관람가 [해외] PG</p>
+      <p class="m_summary"><span class="m_info02">줄거리</span>2005년 뉴저지. 리처드는 가족을 깜짝 놀라게 해줄 선물로 가전제품을 구입한다. 설거지, 청소, 요리, 정원손질 등 모든 집안 일을 하나로 해결할 수 있는 첨단 가전제품. 로봇 앤드류(NDR-114의 애칭)는 리처드를 주인님으로, 자아도취에 빠진 그의 아내를 마님으로 부르며 공손하고 부지런한 가사 로봇의 소임을 다한다. 그러나 기계답지 않은 이상한 질문들을 던져 때론 가족들을 곤란하게, 또 때론 요절복통하게 만드는 등 점차 그의 요상스런 모습이 드러나기 시작하는데.</p>
+    </div>
+    <img src="./img/movie_image.jpg" alt="포스터" id="poster">
+    <div class="swiper mySwiper">
+      <ul class="lnb swiper-wrapper">
+        <li class="swiper-slide"><img src="./img/movie_image01.jpeg" alt="01"  class="thumb on"></li>
+        <li class="swiper-slide"><img src="./img/movie_image02.jpeg" alt="02"  class="thumb"></li>
+        <li class="swiper-slide"><img src="./img/movie_image03.jpeg" alt="03"  class="thumb"></li>
+        <li class="swiper-slide"><img src="./img/movie_image04.jpeg" alt="04"  class="thumb"></li>
+        <li class="swiper-slide"><img src="./img/movie_image05.jpeg" alt="05"  class="thumb"></li>
+        <li class="swiper-slide"><img src="./img/movie_image06.jpeg" alt="06"  class="thumb"></li>
+        <li class="swiper-slide"><img src="./img/movie_image07.jpeg" alt="07"  class="thumb"></li>
+        <li class="swiper-slide"><img src="./img/movie_image08.jpeg" alt="08"  class="thumb"></li>
+        <li class="swiper-slide"><img src="./img/movie_image09.jpeg" alt="09"  class="thumb"></li>
+      </ul>
+      <div class="swiper-button-next next"></div>
+      <div class="swiper-button-prev prev"></div>
+    </div>
+		<div id="big_img">
+			<img src="./img/movie_image01.jpeg" alt="" id="photo">
+      <span class="material-symbols-outlined" id="prev">
+        arrow_back_ios
+        </span>
+        <span class="material-symbols-outlined" id="next">
+          arrow_forward_ios
+          </span>
+		</div>
+
+	</article>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: "8",
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      // centeredSlides: true,
+      // loop:true,
+      navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+    });
+
+
+  </script>
+
+</body>
+</html>

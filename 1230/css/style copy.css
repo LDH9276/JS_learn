@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+#box01{
+  width: 380px;
+  margin: 0 auto;
+}
+#box01 a{
+  color: #222;
+  text-decoration: none;
+}
+.h_top > h4{
+  float: left;
+  font-size: 24px;
+}
+.h_top > ul{
+  width: 150px;
+  display: flex;
+  list-style: none;
+  padding: 0px 15px;
+  justify-content: space-around;
+  float: right;
+}
+.h_top{
+  border-bottom: 1px solid #777;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+.h_top::after{
+  content: "";
+  clear: both;
+  display: block;
+}
+
+#newswrap > div{
+  width: 300px;
+
+}
+#newswrap li{
+  width: 380px;
+  list-style:decimal;
+  list-style-position: inside;
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+#mbcnews, #portal, #social, #youtube{
+  display: none;
+}
+
+#newswrap li > a{
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 40px;
+  color: #222;
+}
+#newswrap li::marker{
+  color: blue;
+  font-weight: 800;
+  font-size: 18px;
+}

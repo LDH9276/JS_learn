@@ -1,0 +1,151 @@
+@charset "UTF-8";
+
+
+/* 공통서식 */
+*{margin: 0; padding: 0; list-style: none;}
+body{background: #777;}
+.main, #big_img, #text_box, #img_box{
+  margin: 0 auto;
+}
+.main{
+  display: flex;
+  background: #fff;
+  width: 1200px; min-height: auto;
+  align-items: center;
+  justify-content: center;
+  padding: 70px;
+}
+.main > h2{display: none;}
+
+/* 상단 영화정보 서식 */
+#text_box{
+  width: 800px;
+  height: 400px;
+  display: block;
+  padding-bottom: 100px;
+}
+.txt_wrap{
+  float: left;
+  width: 400px;
+  padding-bottom: 40px;
+}
+.txt_wrap h2{
+  font-size: 32px;
+  line-height: 45px;
+}
+.m_name{
+  font-size: 14px;
+  color: #777;
+  padding-bottom: 20px;
+}
+.m_info01, .m_summary{
+  line-height: 34px;
+}
+.m_info01{
+  font-weight: 800;
+  padding-right: 10px;
+}
+.m_info02{
+  font-weight: 800;
+  padding-right: 10px;
+}
+.m_summary{
+  width: 400px;
+  height: 220px;
+  line-height: 25px;
+  overflow: hidden;
+  padding-top: 10px;
+  font-size: 15px;
+}
+#poster{
+  display: block;
+  width: 300px;
+  height: 400px;
+  float: right;
+  object-fit: cover;
+}
+
+
+/* 하단 슬라이드 시작 */
+#img_box{
+  display: block;
+  width: 800px;
+}
+
+/* 슬라이더 서식 */
+.mySwiper {
+  width: 800px;
+  height: 100%;
+}
+.lnb{
+  display: flex;
+  padding-bottom: 20px;
+}
+.next, .prev{
+  top: 21px !important;
+  padding: 31px;
+  background-color: rgba(0,0,0,.6);
+  color: rgba(255,255,255,.6) !important;
+  transition: 0.3s;
+}
+.next:hover, .prev:hover{
+  color: rgba(255,255,255,1) !important;
+}
+.next{right: 0 !important;}
+.prev{left: 0 !important;}
+.swiper-slide {
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 18px;
+  background: #fff;}
+
+
+/* 썸네일 서식 */
+
+.lnb li{
+  width: 100%;
+  padding: 0px;
+}
+.lnb li img{
+  width: 100%; height: 105px;
+  object-fit: cover;
+  vertical-align: bottom;
+  box-sizing: border-box;
+}
+
+/* 슬라이드 처음 서식 적용 */
+li[data-swiper-slide-index="0"] > img{
+  border: 4px solid orangered;
+}
+
+/* 메인 이미지 서식 */
+#big_img{
+  width: 700px; height: 600px;
+  /* overflow: hidden; */
+  background-color: #000;
+  position: relative;
+}
+#photo{
+  width: 100%;
+  height: 600px;
+  object-fit:contain;
+}
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+#prev, #next{
+  position: absolute;
+  top:250px;
+  font-size: 40px;
+  padding: 30px;
+}
+#prev{
+  left: -80px;
+}
+#prev{
+  right: -80px;
+}

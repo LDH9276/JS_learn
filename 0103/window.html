@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01_window(브라우저)_object(객체)</title>
+  <style>
+    *{margin: 0; padding: 0;}
+    .modal{
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,.8);
+      position: fixed;
+      left: 0; top: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* 박스를 화면 중앙 배치를 위해 자식요소에
+    position : absolute;
+    transform : translate(-50%, -50%);
+    도 사용 가능하다.
+    */
+
+    .modal > .banner{
+      width: 380px; height: 420px;
+    }
+    .modal > .banner img{
+      display: block;
+      width: 100%;
+      object-fit: cover;
+    }
+    .modal > .banner > p{
+      line-height: 40px;
+      background: #222;
+      text-align: center;
+    }
+    .modal > .banner > p > button{
+      border: 1px solid #fff;
+      color: #FFF;
+      padding: 4px 15px;
+      background: none;
+    }
+  </style>
+
+
+  <script>
+    function hide(){
+      document.getElementById('modal').style.display="none";
+    }
+
+
+    function popup(){
+      window.open('popup.html','', 'width=380, height=385')
+    }
+
+    
+  </script>
+</head>
+<body>
+  <h3>01_window(브라우저)_object(객체)</h3>
+  <p>window 브라우저 객체는 사용자가 사용하는 웹브라우저의 창에서 다양한 동작이나 속성을 설정하고자 할 때 사용하는 객체이다.</p>
+  
+  <h3>window객체</h3>
+  <p>window객체는 브라우저의 객체 중 최상위 객체로서 현재 실행되고 있는 브라우저 창을 나타낸다.</p>
+
+  <dl>
+    <dt>window객체의 속성(property)</dt>
+    <dd>document</dd>
+    <dd>frameElement</dd>
+    <dd>innerHeight</dd>
+    <dd>innerWidth</dd>
+    <dd>location</dd>
+    <dd>name</dd>
+    <dd>screenX</dd>
+    <dd>screenY</dd>
+    <dd>scrollX, scrollY</dd>
+    <dd>sessionStorage</dd>
+  </dl>
+
+  <dl>
+    <dt>windo객체의 메서드</dt>
+    <dd>alert() : 윈도우창에서 경고창(메시지를 띄울 때 사용한다</dd>
+    <dd>blur() : 현재 창에서 포커스를 제거</dd>
+    <dd>close() : 현재 창 닫기</dd>
+    <dd>confirm() : 확인, 취소버튼이 있는 확인창을 띄움</dd>
+    <dd>focus() : 현재 창에서 포커스를 부여한다</dd>
+    <dd>moveBy() : 현재 창을 지정한 크기만큼 이동</dd>
+    <dd>moveTo() : 현재창을 지정한 좌표로 이동</dd>
+    <dd>open() : 새로운 창을 연다</dd>
+    <dd>prompt() : 사용자가 입력 가능한 프롬프트창을 출력한다</dd>
+    <dd>resizeTo() : 동적으로 창의 크기를 조정한다</dd>
+    <dd>scroll() : 문서의 특정 위치로 스크롤한다</dd>
+    <dd></dd>
+    <dd></dd>
+  </dl>
+  <input type="button" id="btn1" value="alert() 실행" onclick="alert('메시지를 띄웁니다')">
+  <!-- 사용자가 입력을 잘못했을 때 입력하지 않고 버튼을 클릭했을 때 -->
+
+  <input type="button" id="btn2" value="prompt() 실행" onclick="prompt('메시지를 입력해주세요')">
+  <!-- 본인 인증시 인증번호 입력 (다만 css로 못꾸미니 다른 방법으로 만들것) -->
+
+  <input type="button" id="btn3" value="confirm() 실행" onclick="confirm('메시지를 확인해주세요')">
+  <!-- 결제, 예약, 주문확인, 가입확인 -->
+
+  <input type="button" id="btn4" value="open() 실행" onclick="popup()">
+  <input type="button" id="btn5" value="close() 실행" onclick="close()">
+
+  <p>팝업창의 기능은 window.open으로 새 창에 띄우도록 할 수 있지만, 팝업차단 기능으로 인해 잘 보지 않을 가능성이 높아 팝업창을 띄우지 않고 <br> 팝업 레이어, 모달 윈도우(css로 박스 포지션 배치)를 활용하여 띄운다.</p>
+
+  <dl>
+    <dt>모달 윈도우(modal window)</dt>
+    <dd>모달 윈도우는 사용자 인터페이스 디자인 개념에서 자식 윈도에서 부모 윈도우로 돌아가기 전에 사용자의 상호동작을 요구하는 창을 말한다.</dd>
+    <dd>모달 윈도우는 부모창을 배경으로 어둡게 하고 자식요소가 화면의 가운데 중앙에 배치하도록 하여, 오른쪽 상단에 '닫기' 버튼을 만들어서 닫을 수 있도록 한다.</dd>
+  </dl>
+
+  <div class="modal" id="modal">
+    <div class="banner">
+      <img src="./images/banner.jpg" alt="배너">
+      <p><button type="button" onclick="hide()">닫기</button></p>
+    </div>
+  </div>
+
+  <h3>실습예제 푸터 영역에 있는 패밀리사이트 바로가기 구현하기</h3>
+  <select onchange="siteUrl(this.value)">
+    <option value="">관련사이트</option>
+    <option value="https://www.lotteria.com/">롯데리아</option>
+    <option value="https://www.angelinus.com/">엔젤리너스커피</option>
+    <option value="https://www.lotteshopping.com/">롯데백화점</option>
+    <option value="https://www.lotteimall.com/">롯데홈쇼핑</option>
+  </select>
+
+  <div id="location"></div>
+  <div id="screen"></div>
+
+  <script>
+    function siteUrl(a){
+      if(a!=''){
+        window.open(a, '_self');
+      } return;
+    }
+
+    //닷홈페이지의 주소 정보를 가져오기.
+    document.getElementById('location').innerHTML=('<p>' + location.href + '<br>' + location.host + '<br>' + location.protocol + '</p>');
+
+    //스크린 정보 표시하기
+    function myScreen(){
+    document.getElementById('screen').innerHTML='<p>'+window.innerWidth+'x'+ window.innerHeight +'</p>'
+    }
+    myScreen();
+    setInterval(myScreen, 500);
+
+  </script>
+
+</body>
+</html>

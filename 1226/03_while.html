@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03_조건문 (while)</title>
+  <script>
+    // while문
+    let n=1; //초기 값
+
+
+    while(n<=10){ //n이 10보다 작거나 같을때까지 아래 내용을 실행한다.
+      document.write(n);
+      n++; //n에 1을 더하여 조건식으로 되돌아간다.
+    }
+
+    document.write('<br>')
+
+    // do while문
+    let n1 = 1; //초기값
+    do{
+      document.write(n1);
+      n1++
+    }while(n1<=10);
+
+    document.write('<br>')
+
+    //for문
+    for(let n2 = 1; n2<=10; n2++){
+      document.write(n2);
+    }
+
+    //반복문을 사용하여 구구단 출력하기 충첩 for 문
+    //************* 2단 *************
+    for(let i=2; i<=9; i++){
+      document.write('*************' + i + '단 ************* <br>');
+       for(let j=1; j<=9; j++){
+         document.write(i + ' * ' + j + ' = ' + i*j + '<br>');
+       }
+    }
+
+  </script>
+
+</head>
+<body>
+  <h2>01제어문 (03. 반복문)</h2>
+  <p>반목문은 작업을 반복수행할 때 사용하며, 조건문(if)가 프로그램을 지적으로 만든다면 반복문을 프로그램을 강력하게 만드는 역할은 한다.</p>
+  <P> 주의할 점 - 조건을 잘못 입력하면 무한루프에 빠지는 오류가 생기며, 브라우저에 화면 멈춤현상을 유발 할 수 있다.</P>
+  <pre>
+    while - 반복조건
+    do while - 반복조건
+    for문 - 반복회수
+    for문 작성법
+
+  </pre>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS_패밀리탭메뉴 예제</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <style>
+    *{margin: 0; padding: 0;}
+    h2, p{padding: 10px;}
+  </style>
+</head>
+<body>
+  <h2>exam01 - tab</h2>
+  <p>탭메뉴 구현하기</p>
+
+  <div id="box01">
+
+    <div class="h_top">
+      <h4>많이 본 뉴스</h4>
+          <input type="radio" name="newslist" id="mbcnewsbtn" checked>
+          <label for="mbcnewsbtn">
+            <span class="top_txt">MBC</span>
+          </label>
+          <input type="radio" name="newslist" id="portalbtn">
+          <label for="portalbtn">
+            <span class="top_txt">포탈</span>
+          </label>
+          <input type="radio" name="newslist" id="socialbtn">
+          <label for="socialbtn">
+            <span class="top_txt">SNS</span>
+          </label>
+          <input type="radio" name="newslist" id="youtubebtn">
+          <label for="youtubebtn">
+            <span class="top_txt">유튜브</span>
+          </label>
+          <div class="block">&nbsp;</div>
+        <ul id="mbcnews">
+          <li><a href="#">한 총리 "중국발 입국 전후 코로나 검사 의무화"‥단기비자 발급 제한</a></li>
+          <li><a href="#">한 총리 "중국발 입국 전후 코로나 검사 의무화"‥단기비자 발급 제한</a></li>
+          <li><a href="#">한 총리 "중국발 입국 전후 코로나 검사 의무화"‥단기비자 발급 제한</a></li>
+          <li><a href="#">한 총리 "중국발 입국 전후 코로나 검사 의무화"‥단기비자 발급 제한</a></li>
+          <li><a href="#">한 총리 "중국발 입국 전후 코로나 검사 의무화"‥단기비자 발급 제한</a></li>
+          <li><a href="#">한 총리 "중국발 입국 전후 코로나 검사 의무화"‥단기비자 발급 제한</a></li>
+          <li><a href="#">한 총리 "중국발 입국 전후 코로나 검사 의무화"‥단기비자 발급 제한</a></li>
+          <li><a href="#">한 총리 "중국발 입국 전후 코로나 검사 의무화"‥단기비자 발급 제한</a></li>
+        </ul>
+        <ul id="portal">
+          <li><a href="#">[단독] 숨진 빌라왕 송 모 씨‥"일감 받아 심부름한 사람이었다"</a></li>
+          <li><a href="#">[단독] 숨진 빌라왕 송 모 씨‥"일감 받아 심부름한 사람이었다"</a></li>
+          <li><a href="#">[단독] 숨진 빌라왕 송 모 씨‥"일감 받아 심부름한 사람이었다"</a></li>
+          <li><a href="#">[단독] 숨진 빌라왕 송 모 씨‥"일감 받아 심부름한 사람이었다"</a></li>
+          <li><a href="#">[단독] 숨진 빌라왕 송 모 씨‥"일감 받아 심부름한 사람이었다"</a></li>
+          <li><a href="#">[단독] 숨진 빌라왕 송 모 씨‥"일감 받아 심부름한 사람이었다"</a></li>
+          <li><a href="#">[단독] 숨진 빌라왕 송 모 씨‥"일감 받아 심부름한 사람이었다"</a></li>
+          <li><a href="#">[단독] 숨진 빌라왕 송 모 씨‥"일감 받아 심부름한 사람이었다"</a></li>
+          <li><a href="#">[단독] 숨진 빌라왕 송 모 씨‥"일감 받아 심부름한 사람이었다"</a></li>
+        </ul>
+        <ul id="social">
+          <li><a href="#">황희찬 역전골, 팬들이 뽑은 'KFA 올해의 골'</a></li>
+          <li><a href="#">황희찬 역전골, 팬들이 뽑은 'KFA 올해의 골'</a></li>
+          <li><a href="#">황희찬 역전골, 팬들이 뽑은 'KFA 올해의 골'</a></li>
+          <li><a href="#">황희찬 역전골, 팬들이 뽑은 'KFA 올해의 골'</a></li>
+          <li><a href="#">황희찬 역전골, 팬들이 뽑은 'KFA 올해의 골'</a></li>
+          <li><a href="#">황희찬 역전골, 팬들이 뽑은 'KFA 올해의 골'</a></li>
+          <li><a href="#">황희찬 역전골, 팬들이 뽑은 'KFA 올해의 골'</a></li>
+        </ul>
+        <ul id="youtube">
+          <li><a href="#">오늘 새벽 또 무인기 소동..굉음에 놀라 '깜짝'</a></li>
+          <li><a href="#">오늘 새벽 또 무인기 소동..굉음에 놀라 '깜짝'</a></li>
+          <li><a href="#">오늘 새벽 또 무인기 소동..굉음에 놀라 '깜짝'</a></li>
+          <li><a href="#">오늘 새벽 또 무인기 소동..굉음에 놀라 '깜짝'</a></li>
+          <li><a href="#">오늘 새벽 또 무인기 소동..굉음에 놀라 '깜짝'</a></li>
+          <li><a href="#">오늘 새벽 또 무인기 소동..굉음에 놀라 '깜짝'</a></li>
+          <li><a href="#">오늘 새벽 또 무인기 소동..굉음에 놀라 '깜짝'</a></li>
+        </ul>
+    </div>
+
+
+    <script>
+      const mbcnewsBtn=document.getElementById('mbcnews_btn')
+      const portalBtn=document.getElementById('portal_btn')
+      const socialBtn=document.getElementById('social_btn')
+      const youtubeBtn=document.getElementById('youtube_btn')
+
+      let mbcnews = document.getElementById('mbcnews')
+      let portal = document.getElementById('portal')
+      let social = document.getElementById('social')
+      let youtube = document.getElementById('youtube')
+
+      mbcnewsBtn.addEventListener('click', ()=>{
+        mbcnews.style.display="block";
+        portal.style.display="none"
+        portalBtn.removeEventListener;
+        socialBtn.removeEventListener;
+        youtubeBtn.removeEventListener;
+      });
+
+      portalBtn.addEventListener('click', ()=>{
+        portal.style.display="block";
+        socialBtn.removeEventListener;
+        mbcnewsBtn.removeEventListener;
+        youtubeBtn.removeEventListener;
+      });
+
+
+
+    </script>
+  </div>
+
+  <script>
+    
+    
+    const btn01 = document.getElementById('open');
+    btn01.addEventListener('click', function(){
+      document.getElementById('desc').style.display="block";
+    });
+
+  </script>
+
+</body>
+</html>

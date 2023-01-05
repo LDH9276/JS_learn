@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02_javascript로 만들 수 있는 콘텐츠 찾아보기</title>
+  <style>
+    .wrap *{margin: 0px; padding: 0px;}
+    .wrap{
+      width: 375px; height: auto;
+      border: 1px solid #222;}
+    header img, footer img{width: 100%; display: block;}
+    nav{
+      text-align: center;
+      background-color: #cdcdd3;
+    }
+    nav img{width: 15%;}
+  </style>
+  <script>
+  function imgOff(){
+  document.getElementById('car').src="./img/car01_01.jpg";
+  document.getElementById('gnb').style.backgroundImage="url(./img/btn_back.jpg)";
+  document.getElementById('footer').src="./img/car01_03.jpg";
+} //조명끄기를 클릭하면 작동
+
+  function imgOn(){
+  document.getElementById('car').src="./img/car_01.jpg";
+  document.getElementById('gnb').style.backgroundImage="none";
+  document.getElementById('footer').src="./img/car_03.jpg";
+} //조명켜기를 클릭하면 작동
+  </script>
+</head>
+<body>
+  <h2>02_javascript로 만들 수 있는 콘텐츠 찾아보기</h2>
+  <p>웹페이지에서 자바스크립트로 만들어진 콘텐츠 수집하기</p>
+  <ul>
+    <li>네이버 : 날씨정보, 증시정보, 뉴스정보</li>
+    <li>네이버 : 뉴스스탠드 - 언론사 아이콘 목록 좌우버튼, 오늘 읽은만한 글 좌우버튼, 트렌드쇼핑 - 컨텐츠</li>
+    <li>네이버 : 새로 고침시 랜덤되는 이미지</li>
+    <li>네이버 : 좌/우버튼</li>
+    <li>쿠팡 : 오늘 하루 열지않음</li>
+    <li>쿠팡 : 배너</li>
+    <li>쿠팡 : 패밀리 사이트</li>
+  </ul>
+
+  <h3>자바스크립트를 활용하여 이미지 2장을 활용하여 버튼을 클릭하면 해당 이미지의 경로를 변경하여 전구에 불이 들어오게 하기</h3>
+
+  <img src="./img/pic_bulboff.gif" alt="전구" id="bulb">
+  <p>
+    <input type="button" value="켜기" onclick="document.getElementById('bulb').src='./img/pic_bulbon.gif'">
+    <input type="button" value="끄기" onclick="document.getElementById('bulb').src='./img/pic_bulboff.gif'">
+  </p>
+  
+  <h3>활용예제2 - 글자 확대</h3>
+  <p id="txt01">건강보험공단, 산업인력공단 등 사이트에서 사용하는 글자확대, 축소하기</p>
+
+  <input type="button" value="글자확대(32px)" onclick="document.getElementById('txt01').style.fontSize='32px';">
+  <input type="button" value="글자축소(16px)" onclick="document.getElementById('txt01').style.fontSize='16px';">
+
+  <h3>활용예제3 - 웹페이지의 하단(푸터) 영역에 select, option 태그 요소를 활용하여 family sicte 이동하기 - 점프 메뉴</h3>
+
+  <select onchange="siteUrl(this);"> 
+    <option value="">Family Site</option>
+    <option value="http://www.naver.com">네이버</option>
+    <option value="http://www.daum.net">다음</option>
+    <option value="http://www.google.com">구글</option>
+  </select>
+
+  <script>
+    function siteUrl(a){ //사용자가 선택목록을 선택하면 suteUrl함수가 호출됨.
+      if(a.value != 'none'){//a.value가 값이 있다면 (none일 경우 false) 
+        window.open(a.value, '_self');//선택한 사이트가 열리게 하고
+        a.value = 'none'; //기존 값을 지운다
+      }
+      else{ //선택을 하지 않으면
+        return; //프로그램을 종료한다.
+      }
+    }
+  </script>
+
+  <h3>활용예제4 - 모바일 화면에서 버튼을 클릭시 조명끄기, 조명켜기 기능을 구현하기</h3>
+
+  <div class="wrap">
+    <header>
+      <img id="car" src="./img/car_01.jpg" alt="">
+    </header>
+
+    <nav id="gnb">
+      <img src="./img/light_on.png" alt="조명켜기" onclick="imgOn()">
+      <img src="./img/light_off.png" alt="조명끄기" onclick="imgOff()">
+    </nav>
+
+    <footer>
+      <img id="footer" src="./img/car_03.jpg" alt="하단이미지">
+    </footer>
+
+  </div>
+
+  
+</body>
+</html>

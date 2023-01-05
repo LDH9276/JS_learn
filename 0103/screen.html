@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    //배열객체를 이용하여 스마트폰 종류별 명칭을 넣어준다.
+    let mobile_key= new Array('Android', 'iPhone', 'iPad', 'SAMSUNG', 'Windows Phone', 'Windows CE');
+    //만약에 주소에 move_pc_screen 값이 없다면
+    if(document.URL.match("move_pc_screen")) mobile_key = null;
+    //
+    for(i in mobile_key){
+      if(navigator.userAgent.match(mobile_key[i])!=null){
+        location.href = "mobile.html"; break;
+      }
+    }
+
+  </script>
+
+</head>
+<body>
+  <h3>적응형 웹 모바일 화면</h3>
+  <p>PC유저가 PC화면에 접속 시 자동으로 연결되는 페이지입니다.</p>
+</body>
+</html>

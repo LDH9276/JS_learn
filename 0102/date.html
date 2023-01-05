@@ -1,0 +1,88 @@
+  <!DOCTYPE html>
+  <html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03_내장객체(object)_Date(날짜와 시간)</title>
+  </head>
+  <body>
+    <h3>03_내장객체(object)_Date(날짜와 시간)</h3>
+    <p>Date객체는 현재 또는 특정 날짜와 시간에 대한 정보를 제공하는 객체이다.</p>
+    <p>작성법 > let 변수명 = new Date();</p>
+
+    <h3>날짜와 시간 정보를 제공하는 속성</h3>
+    <p>getFullYear() : 날짜 정보에서 연도에 대한 정보를 제공</p>
+    <p>getMonth() : 날짜 정보에서 달에 대한 정보를 제공</p>
+    <p>getDate() : 날짜 정보에서 날짜에 대한 정보를 제공</p>
+    <p>getDay() : 날짜 정보에서 요일에 대한 정보를 제공</p>
+    <p>getHour() : 날짜 정보에서 시간에 대한 정보를 제공</p>
+    <p>getMinutes() : 날짜 정보에서 분에 대한 정보를 제공</p>
+    <p>getSecond() : 날짜 정보에서 초에 대한 정보를 제공</p>
+    <p>getMilliseconds() : 날짜 정보에서 밀리초(1/1000)에 대한 정보를 제공</p>
+
+    <h3>시간 객체 활용</h3>
+    <div id="h_top" style="display:flex; width:450px; text-align: right; justify-content:first baseline;">
+    <div id = "h_news" style="float: left;">
+      &nbsp;
+    </div>
+    <div style="margin-left: 50px;"><p>언론사별, 속보, 카테고리</p></div>
+    </div>
+
+    <h3>날짜 객체를 이용한 디지털 시계 표시하기</h3>
+    <div id="clock"></div>
+
+    <script>
+
+    function getClock(){
+      let today = new Date();
+      let todayDate = today.getDate();
+      let todayMonth = today.getMonth()+1;
+      let todayHour = today.getHours();
+      let todayMin = today.getMinutes();
+      let todaySec = today.getSeconds();
+
+      let mon = String(todayMonth).padStart(2, '0');
+      let d = String(todayDate).padStart(2, '0');
+      let h = String(todayHour).padStart(2, '0');
+      let m = String(todayMin).padStart(2, '0');
+      let s = String(todaySec).padStart(2, '0');
+      
+      function checkTime(i){
+        if(i<10){
+          i = '0' + i;
+        } else{
+          i = i;
+        }
+      }
+
+      let yoil = today.getDay();
+      // if(todayMonth<10){
+      //   todayMonth = '0' + todayMonth
+      // } else {todayMonth = todayMonth}
+
+      // if(todayDate<10){
+      //   todayDate = '0' + todayDate
+      // } else {todayDate = todayDate}
+
+        // switch (yoil) {
+        //   case 0: document.write('일');break;
+        //   case 1: document.write('월');break;
+        //   case 2: document.write('화');break;
+        //   case 3: document.write('수');break;
+        //   case 4: document.write('목');break;
+        //   case 5: document.write('금');break;        
+        //   default:document.write('토');break;
+        // }
+        let yoil2 = ['일', '월', '화', '수', '목', '금']
+
+      document.getElementById('h_news').innerHTML=`<p> ${mon}. ${d} (${yoil2[yoil]})</p>`
+
+      document.getElementById('clock').innerHTML=`<p>현재 시간은 ${mon}월 ${d}일 ${yoil2[yoil]}요일 ${h}시 ${m}분 ${s}초 입니다. </p>`
+      }
+      getClock();
+      setInterval(getClock, 1000);
+    </script>
+
+  </body>
+  </html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03_함수표현식 P.535</title>
+</head>
+<body>
+  <h2>03_함수표현식 p.535</h2>
+  <p>함수작성은 함수명을 만들고 선언하며 내용을 작성한 뒤에 함수명을 호출하여 실행하였다.</p>
+  <p>함수이름을 지정하지 않고도 바로 실행하는 방법도 있다. 이러한 함수 실행방법을 익명함수(즉시실행함수)라고 한다.</p>
+
+  <pre>
+    function(매개변수){
+      실행내용;
+    };
+  </pre>
+  <script>
+    // 1. 함수 실행
+    let sum = function(a, b){
+      return a+b;
+    }
+
+    document.write('함수 실행결과 ' + sum(11+33, 22) + '<br>');
+
+    //2. 즉시 실행함수
+    //함수를 실행하는 순간 자바스크립트 해석기에 의해 동작함
+    //식 형태로 출력하기 때문에 함수 선언 끝에 세미클론을 작성함
+    let sum1;
+    (function(a1, b1){
+      sum1 = a1 + b1;
+    }(100,200));
+    document.write('즉시 실행함수 결과 ' + sum1 + '<br>');
+
+    //3. 화살표 함수
+    //2015년 자바스크립트 표준화가 되면서 새롭게 변경된 함수작성법
+    //funcion을 => (화살표로 단축)
+
+    //1. 매개변수가 없는 화살표 함수 사용
+    const h1 = ()=> document.write('<p> 매개변수가 없는 화살표함수 사용하기 </p>');
+    h1();
+
+    //2. 매개변수가 있는 함수
+    // let h2 = function(user){
+    //   document.write(user + '님 반갑습니다.');
+    // }
+    let h2 = user => document.write(user + '님 반갑습니다. <br>');
+
+    h2('안뚱')
+    // let s = function(c, d){
+    //   document.write(c+d);
+    // }
+
+    let s = (c, d) => document.write(c+d)
+
+    s(10,20)
+
+  </script>
+  
+</body>
+</html>
