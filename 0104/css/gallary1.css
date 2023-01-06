@@ -104,7 +104,9 @@ body{background: #777;}
 
 .lnb li{
   width: 100%;
+  height: 105px;
   padding: 0px;
+  box-sizing: border-box;
 }
 .lnb li img{
   width: 100%; height: 105px;
@@ -114,7 +116,7 @@ body{background: #777;}
 }
 
 /* 슬라이드 처음 서식 적용 */
-li[data-swiper-slide-index="0"] > img{
+li:first-child > img{
   border: 4px solid orangered;
 }
 
@@ -146,6 +148,6 @@ li[data-swiper-slide-index="0"] > img{
 #prev{
   left: -80px;
 }
-#prev{
+#next{
   right: -80px;
 }

@@ -1,45 +1,56 @@
-let smallImg = document.querySelectorAll('.thumb');
-let bigImg = document.querySelector('#photo');
+const img_list = document.querySelectorAll('.lnb > li > img');
+const bigImg = document.getElementById('photo');
+let imgNumber = 1;
 
-for (let i=0; i<smallImg.length; i++){
-  smallImg[i].addEventListener('click', changeImg);
+img_list.forEach((el, index)=>{
+  el.onclick=()=>{
+    console.log(index+1);
+    imgNumber = index+1;
+    document.getElementById('page').innerHTML=`${imgNumber} / 9`
+    document.getElementById('photo').src='./img/movie_image0'+imgNumber+'.jpeg';
 
-}
+    img_list.forEach((el) => {
+      el.style.border = "none";
+    });
 
-function changeImg(){
-  let imgUrl = this.src;
-  bigImg.setAttribute('src', imgUrl)
-
-  for (let j=0; j<smallImg.length; j++){
-    smallImg[j].style.border="none";
+    img_list[imgNumber].style.border = "4px solid orangered";
+    img_list[imgNumber].style.boxSizing = "border-box";
   }
-  this.style.border="4px solid orangered"
-
-}
+  }
+);
 
     //증가하는 함수
   let prev = document.getElementById('prev');
   let next = document.getElementById('next')
-  let n=1;
 
-  prev.addEventListener('click', minus);
-  next.addEventListener('click', plus);
 
-  function plus(){
-    if(n==9){
-        n = 1;
-      }else{
-        n++;
-      }
-      document.getElementById('photo').src="./img/movie_image0"+n+".jpeg"
-    };
-
-    //감소하는 함수
-    function minus(){
-      if(n==1){
-        n = 9;
-      }else{
-        n--;
-      }
-      document.getElementById('photo').src="./img/movie_image0"+n+".jpeg"
+  prev.addEventListener('click', function(){
+    if(imgNumber == 1){
+      imgNumber=9;
+    }else{
+      imgNumber--
     }
+    document.getElementById('page').innerHTML=`${imgNumber} / 9`
+    document.getElementById('photo').src='./img/movie_image0'+imgNumber+'.jpeg';
+    img_list.forEach((el) => {
+      el.style.border = "none";
+    });
+    img_list[imgNumber-1].style.border = "4px solid orangered";
+    img_list[imgNumber-1].style.boxSizing = "border-box";
+  });
+  
+  next.addEventListener('click', function(){
+    if(imgNumber == 9){
+      imgNumber=1;
+    }else{
+      imgNumber++
+    }
+    document.getElementById('page').innerHTML=`${imgNumber} / 9`
+    document.getElementById('photo').src='./img/movie_image0'+imgNumber+'.jpeg';
+    img_list.forEach((el) => {
+      el.style.border = "none";
+    });
+    img_list[imgNumber-1].style.border = "4px solid orangered";
+    img_list[imgNumber-1].style.boxSizing = "border-box";
+  });
+  
