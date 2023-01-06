@@ -76,24 +76,29 @@ body{background: #777;}
 .mySwiper {
   width: 800px;
   height: 100%;
+  overflow: hidden;
+  position: relative;
 }
 .lnb{
+  width: 900px;
   display: flex;
   padding-bottom: 20px;
   transition: 0.3s;
 }
-.next, .prev{
-  top: 21px !important;
-  padding: 31px;
+#top_next, #top_prev{
+  position: absolute;
+  top: 0px;
+  padding: 40px 10px;
   background-color: rgba(0,0,0,.6);
   color: rgba(255,255,255,.6) !important;
   transition: 0.3s;
+  z-index: 999;
 }
-.next:hover, .prev:hover{
+#top_next:hover, #top_prev:hover{
   color: rgba(255,255,255,1) !important;
 }
-.next{right: 0 !important;}
-.prev{left: 0 !important;}
+#top_next{right: 0 !important;}
+#top_prev{left: 0 !important;}
 .swiper-slide {
   box-sizing: border-box;
   text-align: center;
