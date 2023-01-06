@@ -26,6 +26,7 @@ img_list.forEach((el, index)=>{
   let next = document.getElementById('next')
 
 
+
   prev.addEventListener('click', function(){
     if(imgNumber == 1){
       imgNumber=9;
@@ -39,21 +40,22 @@ img_list.forEach((el, index)=>{
     });
     img_list[imgNumber-1].style.border = "4px solid orangered";
     img_list[imgNumber-1].style.boxSizing = "border-box";
+
+    if(imgNumber > 8){
+      slidewrap.style.transform = "translate(-100px, 0px)";
+    }else{
+      slidewrap.style.transform = "translate(0px, 0px)"
+    }
+    
   });
-  
+
+
   next.addEventListener('click', function(){
     if(imgNumber == 9){
       imgNumber=1;
     }else{
       imgNumber++
     }
-
-    if(imgNumber > 8){
-      slidewrap.style.transform = "translate(-100px, 0px)"
-    }else{
-      slidewrap.style.transform = "translate(0px, 0px)"
-    }
-
     document.getElementById('page').innerHTML=`${imgNumber} / 9`
     document.getElementById('photo').src='./img/movie_image0'+imgNumber+'.jpeg';
     img_list.forEach((el) => {
@@ -61,6 +63,14 @@ img_list.forEach((el, index)=>{
     });
     img_list[imgNumber-1].style.border = "4px solid orangered";
     img_list[imgNumber-1].style.boxSizing = "border-box";
+
+    if(imgNumber > 8){
+      slidewrap.style.transform = "translate(-100px, 0px)";
+    }else{
+      slidewrap.style.transform = "translate(0px, 0px)"
+    }
+    
+
   });
   
   

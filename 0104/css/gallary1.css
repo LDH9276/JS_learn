@@ -80,6 +80,7 @@ body{background: #777;}
 .lnb{
   display: flex;
   padding-bottom: 20px;
+  transition: 0.3s;
 }
 .next, .prev{
   top: 21px !important;
