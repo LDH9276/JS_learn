@@ -1,4 +1,6 @@
 const img_list = document.querySelectorAll('.lnb > li > img');
+const slidewrap = document.querySelector('.lnb');
+
 const bigImg = document.getElementById('photo');
 let imgNumber = 1;
 
@@ -45,6 +47,13 @@ img_list.forEach((el, index)=>{
     }else{
       imgNumber++
     }
+
+    if(imgNumber > 8){
+      slidewrap.style.transform = "translate(-100px, 0px)"
+    }else{
+      slidewrap.style.transform = "translate(0px, 0px)"
+    }
+
     document.getElementById('page').innerHTML=`${imgNumber} / 9`
     document.getElementById('photo').src='./img/movie_image0'+imgNumber+'.jpeg';
     img_list.forEach((el) => {
@@ -53,4 +62,5 @@ img_list.forEach((el, index)=>{
     img_list[imgNumber-1].style.border = "4px solid orangered";
     img_list[imgNumber-1].style.boxSizing = "border-box";
   });
+  
   
