@@ -102,7 +102,7 @@
         $('[type="text"]:enabled').css('background','orangered');
       });      
       $('.btn22').click(function(){
-        $('input:checked').css('accent-color','red');
+        $('input:checked').parent().css({'accent-color':'red', 'background':'red'});
       });
 
     });

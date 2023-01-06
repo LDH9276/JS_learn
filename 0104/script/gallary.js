@@ -13,8 +13,8 @@ img_list.forEach((el, index)=>{
       el.style.border = "none";
     });
 
-    img_list[imgNumber].style.border = "4px solid orangered";
-    img_list[imgNumber].style.boxSizing = "border-box";
+    img_list[imgNumber-1].style.border = "4px solid orangered";
+    img_list[imgNumber-1].style.boxSizing = "border-box";
   }
   }
 );
