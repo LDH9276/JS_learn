@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>실습예제 : 쿠팡</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <style>
     .box{
       border:5px solid orange;
@@ -34,7 +34,8 @@
       justify-content: space-around;
       position: relative;
     }
-    .fa-solid{
+    .material-symbols-outlined{
+      cursor: pointer;
       font-size: 50px;
       position: absolute;
       top:25%; right: 2%;
@@ -72,17 +73,19 @@
 <body>
   <div id="banner01">
     <img src="./images/coupang_02.jpg" alt="banner01">
-    <i class="fa-solid fa-xmark" id="cl_btn"></i>
+    <span class="material-symbols-outlined" id="cl_btn">
+      close
+      </span>
   </div>
 
 
   <h3>실습예제 '버튼'을 클릭시 모달 레이어가 뜨고 닫기 버튼시 서서히 사라지게 하기</h3>
   <button id="btn11">모달 레이어</button>
 
-  <!-- <div class="modal">
+  <div class="modal">
     <div class="modal01">
       <img src="./images/popup.jpg" alt="팝업">
     </div>
-  </div> -->
+  </div>
 </body>
 </html>
