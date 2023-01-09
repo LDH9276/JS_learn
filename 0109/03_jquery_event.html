@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery Event</title>
+  <style>
+    .box{
+      border: 1px solid #222;
+      text-align: center;
+      margin-bottom: 5px;
+      line-height: 40px;
+      width: 300px;
+      cursor: pointer;
+    }
+    .tab_mnu *{margin: 0; padding: 0;}
+    .tab_mnu{
+      width: 500px;
+      display: flex;
+      justify-content: space-around;
+      text-align: center;
+    }
+    .tab_mnu > li{
+      display: block;
+      width: 100%;
+      list-style: none;
+      border: 1px solid #777;
+    }
+    .tab_mnu li > a{
+      display: block;
+      line-height: 40px;  width: 100%;
+      color: #222;
+      text-decoration: none;
+    }
+    .top_btn{
+      position: fixed;
+      bottom : 100px; right: 100px;
+      padding: 50px;
+    }
+
+  </style>
+<script src="../0106/script/jQuery3_6_3.js"></script>
+<script>
+  $(document).ready(function(){
+    $('.box1').click(function(){
+      $(this).css('background', '#f00');
+    });
+    $('.box2').dblclick(function(){
+      $(this).css('background', "#ff0");
+    });
+    $('.box3').mouseenter(function(){
+      $(this).css('background', 'orange');
+    });
+    $('.box4').mouseleave(function(){
+      $(this).css('background', 'orangered');
+    });
+    $('.box5').hover(function(){
+      $(this).css('background', 'orangered'); // mouseenter
+    }, function(){
+      $(this).css('background', '#FFF'); //mouseleave
+    });
+    $('.box06').toggle(function(){
+      $(this).next().css('background', '#f00');
+    }, function(){
+      $(this).next().css('background', '#0f0');
+    }, function(){
+      $(this).next().css('background', '#f00');
+    }, function(){
+      $(this).next().css('background', '#0f0');
+    }, function(){
+      $(this).next().css('background', '#f00');
+    }, function(){
+      $(this).next().css('background', '#ff0');
+    }, function(){
+      $(this).next().css('background', '#0f0');
+    });
+
+    //탭메뉴 구형
+    let t_mnu = $('.tab_mnu > li > a');
+    t_mnu.each(function(){ // 탭메뉴 각각에 개별 함수를 실행
+      $(this).click(function(e){ // a태그를 클릭 시
+        //선택한 li의 속성 적용, 자부모요소의 형제 요소들을 찾아 다른 li의 자손 a에 서식 풀기
+        e.preventDefault();
+        $(this).css('background', '#f00').parent().siblings().children('a').css('background', 'none'); // 자기자신의 서식을 변경
+      });
+    })
+
+    $('#id_txt').focusin(function(){
+      $(this).css({
+        'border':'3px solid #f00',
+        'background':'#ff0'
+      });
+    });
+    $('#id_txt').focusout(function(){
+      $(this).css({
+        'border':'1px solid #222',
+        'background':'none'
+      });
+    })
+
+    $(window).scroll(function(){
+      let scrollPos = $(this).scrollTop();
+    
+      if(scrollPos>=400){
+        $('.top_btn').css('display', 'block')
+      } else{
+        $('.top_btn').css('display', 'none')
+      }
+    }
+    )
+
+
+    $('.top_btn').click(function(){
+      $('html, body').animate({scrollTop:'0px'}, 150);
+      return false;
+    });
+
+
+
+  })
+
+</script>
+</head>
+<body>
+  <h2>jQuery Event</h2>
+  <p><a href="https://oscarotero.com/jquery/" title="제이쿼리 이벤트">이 사이트에서 제이쿼리 이벤트를 확인이 가능하다.</a></p>
+
+  <p>웹문서에서 버튼을 클릭한다거나 마우스를 움직어가나 하는 모든 행위를 '이벤트'라고 한다. 그리고 이벤트 발생시 함수와 실행문이 수행되도록 이벤트를 지정하는 것을 '이벤트 핸들러'라고 한다.</p>
+
+  <h3>이벤트의 종류</h3>
+  <ul>
+    <li>마우스 이벤트 - 클릭, 더블클릭, 오버, 아웃</li>
+    <li>키보드 이벤트 - keyperss</li>
+    <li>포커스 이벤트 - focus</li>
+    <li>폼양식 이벤트 - submit</li>
+    <li>윈도우 이벤트 - scroll</li>
+  </ul>
+
+  <p>클릭, 마우스오버, 마우스 아웃, keypress, scroll, focus</p>
+  
+  <h3>이벤트 등록방법</h3>
+  <ol>
+    <li>단독 이벤트 - $('이벤트 대상').이벤트매서드(function(){실행할 내용})</li>
+    <li>그룹 이벤트 - $('이벤트 대상').on('이벤트 종류1', '이벤트 종류 2'....'.function(){실행할 내용})</li>
+  </ol>
+
+  <h3>마우스 폼양식, 윈도우 이벤트 사용하기</h3>
+  <ol>
+    <li>click - 마우스로 대상을 클릭하였을 때 이벤트 내용이 실행된다.</li>
+    <li>dblclick - 마우스로 대상을 더블클릭하였을 때 이벤트 내용이 실행됨.</li>
+    <li>mouseover(mouseenter) - 마우스로 대상을 오버하였을 때 이벤트 내용이 실행됨.</li>
+    <li>mouseout(mouseleave) - 마우스로 대상을 오버하였다가 뺐을 때 이벤트 내용이 실행된다.</li>
+    <li>hover - 마우스로 대상을 오버하였을 때와 아웃하였을 때 둘 다 각각 따로 이벤트 내용을 실행함.</li>
+    <li>focus - 마우스로 클릭하여 포커스가 발생되었을 때 이벤트가 발생된다. (양식)</li>
+    <li>blur - 폼양식에서 포커스가 해제되었을 때 이벤트가 발생된다.</li>
+    <li>toggle - 대상요소를 클릭할 때 마다 지정된 함수를 호출하여 실행한다.</li>
+    <li>each - 개별 요소 마다 함수를 각각 처리한다.</li>
+    <li>scroll - 윈도우 이벤트로서 가로스크롤과 세로스크롤이 동작하면 이벤트가 발생된다.</li>
+  </ol>
+
+  <div class="box box1">click이벤트</div>
+  <div class="box box2">dblclick이벤트</div>
+  <div class="box box3">mouseenter이벤트</div>
+  <div class="box box4">mouseleave이벤트</div>
+  <div class="box box5">hover이벤트</div>
+  <div class="box box6">toggle이벤트</div>
+  <p class="p01">위 toggle박스를 클릭하면 현재 문단태그 요소에 서식이 변경된다. 하지만 toggle 이벤트는 jQuery 1.8버전 이하에만 작동된다,</p>
+
+  <h3>each 함수를 이용한 탭메뉴 만들기 - 각각의 li의 자손 a에 개별적인 이벤트 부여</h3>
+
+  <ul class="tab_mnu">
+    <li><a href="#none">tab menu 1</a></li>
+    <li><a href="#none">tab menu 2</a></li>
+    <li><a href="#none">tab menu 3</a></li>
+  </ul>
+
+  <p>탭메뉴 사용시 a태그에 #을 적용하면 상단으로 돌아가게 되는데 이것을 막기 위한 방법</p>
+  <p>자바스크립트에서는 href 속성에 '#none', 'javascript:void(0)', 'javascript:;' 3가지 중에서 하나를 사용</p>
+  <p>jQuery에서는 함수의 마지막에 return false 또는 함수 시작시 e(이벤트 객체)를 넣어서 사용하며 마지막에 event.preventDefault();를 작성한다.</p>
+  <p>event.preDefault() : 해당 이벤트 발생 시, 이밴트의 전파를 막고 이벤트가 발생한 부분에만 처리가 되게끔 만드는 메소드이다. DOM 구조에서는 어떠한 요소에서 이벤트 발생 시, 해방 이벤트는 상위 요소를 타고 올라가게 되는데 이것처럼 원하지 않는 상황이 발생할 수 가 있고, 이것을 방지해주는 역할.</p>
+
+  <h3>form 양식에 적용되는 focus in, focus out 적용하기</h3>
+  <form action="a.php">
+    <fieldset>
+      <legend>로그인 폼</legend>
+      <label for="id_txt">아이디 : </label>
+      <input type="text" id="id_txt" placeholder="ID를 입력해주세요"> <br>
+      <label for="pw_txt">패스워드 : </label>
+      <input type="password" id="pw_txt" placeholder="PW를 입력해주세요">
+    </fieldset>
+  </form>
+
+  <button class="top_btn">메롱메롱</button>
+
+  <div style="height:600px"></div>
+
+</body>
+</html>

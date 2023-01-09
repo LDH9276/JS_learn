@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>effect (효과)</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    .box{
+      border:5px solid orange;
+      width:332px;
+      margin-top: 50px;
+    }
+    .box img{
+      vertical-align: top;
+    }
+    .modal{
+      position: fixed;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,.75);
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    } 
+    #banner01{
+      width: 100%; height: 70px;
+      display: flex;
+      margin: 0 auto;
+      justify-content: space-around;
+      position: relative;
+    }
+    .fa-solid{
+      font-size: 50px;
+      position: absolute;
+      top:-5px;
+      padding: 20px;
+    }
+    #banner01 div > img{
+      height: 70px;
+    }
+    
+  </style>
+  <script src="../0106/script/jQuery3_6_3.js"></script>
+  <script>
+    $(document).ready(function(){
+      let b1 = $('#btn1');
+      let b2 = $('#btn2');
+      let b3 = $('#btn3');
+      let b4 = $('#btn4');
+      let b5 = $('#btn5');
+      let b6 = $('#btn6');
+      let b7 = $('#btn7');
+      let b8 = $('#btn8');
+      let b9 = $('#btn9');
+      let b10 = $('#btn10');
+      let b11 = $('#btn11');
+      let cl_btn = $('#cl_btn');
+
+      b1.click(function(){
+        $('.box').show();
+      });
+      b2.click(function(){
+        $('.box').hide();
+      });
+      b3.click(function(){
+        $('.box').toggle();
+      });
+      b4.click(function(){
+        $('.box').slideDown();
+      });
+      b5.click(function(){
+        $('.box').slideUp();
+      });
+      b6.click(function(){
+        $('.box').slideToggle();
+      });
+      b7.click(function(){
+        $('.box').fadeIn();
+      });
+      b8.click(function(){
+        $('.box').fadeOut();
+      });
+      b9.click(function(){
+        $('.box').fadeToggle(500);
+      });
+      b10.click(function(){
+        $('.box').fadeTo('slow', 0.5);
+      });
+
+      b11.click(function(){
+        $('.modal').fadeToggle();
+      });
+      $('.modal').click(function(){
+        $(this).fadeOut();
+      })    
+
+      $(cl_btn).click(function(){
+        $('#banner01').slideUp();
+      })
+
+
+
+    })
+
+  </script>
+</head>
+<body>
+  <div id="banner01">
+    <div>
+      <img src="./images/coupang_02.jpg" alt="banner01">
+      <i class="fa-solid fa-xmark" id="cl_btn"></i>
+    </div>
+  </div>
+
+  <h3>다운, 업, 애니메이션 기능을 사용하기 위한 메서드이다.</h3>
+  <ul>
+    <li>show() - 선택한 요소를 보이게 한다.</li>
+    <li>hide() - 선택한 요소를 사라지게 한다.</li>
+    <li>toggle() - 선택한 요소를 숨기거나 나타내게한다.</li>
+    <li>slideDown() - 선택한 요소를 아래로 펼친다.</li>
+    <li>slideUp() - 선택한 요소를 위로 접는다.</li>
+    <li>SlideToggle() - 선택한 요소를 아래로 펼치거나 위로 접는다</li>
+    <li>fadeIn() - 선택한 요소를 서서히 나타낸다</li>
+    <li>fadeOut() - 선택한 요소를 서서히 사라지게 한다</li>
+    <li>fadeToggle() - 선택한 요소를 서서히 나타내거나 사라지게한다</li>
+    <li>fadeTo() - 선택한 요소를 지정한 시간만큼 서서히 사라지게 한다.</li>
+  </ul>
+
+  <button id="btn1">show</button>
+  <button id="btn2">hide</button>
+  <button id="btn3">toggle</button>
+  <button id="btn4">slideDown</button>
+  <button id="btn5">slideUp</button>
+  <button id="btn6">SlideToggle</button>
+  <button id="btn7">fadeIn</button>
+  <button id="btn8">fadeOut</button>
+  <button id="btn9">fadeToggle</button>
+  <button id="btn10">fadeTo</button>
+  <div class="box">
+    <img src="./images/banner1.jpg" alt="banner">
+  </div>
+
+  <p>효과메서드 사용 시 괄호() 안에는 시간을 설정하는 값인 'slow' 'normal(기본값)' 'fast'. 속도와 시간(1/1000초)로 설정이 가능하다.</p>
+  <p>예 show('fast') / slideDown(100)</p>
+
+
+  <h3>실습예제 '버튼'을 클릭시 모달 레이어가 뜨고 닫기 버튼시 서서히 사라지게 하기</h3>
+  <button id="btn11">모달 레이어</button>
+
+  <div class="modal">
+    <div class="modal01">
+      <img src="./images/popup.jpg" alt="팝업">
+    </div>
+  </div>
+</body>
+</html>
