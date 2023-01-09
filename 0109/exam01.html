@@ -24,8 +24,11 @@
       align-items: center;
       justify-content: space-around;
     } 
+    .modal *, #banner01 *{
+      margin: 0; padding: 0;
+    }
     #banner01{
-      width: 100%; height: 70px;
+      width: 100%; height: auto;
       display: flex;
       margin: 0 auto;
       justify-content: space-around;
@@ -34,11 +37,12 @@
     .fa-solid{
       font-size: 50px;
       position: absolute;
-      top:-5px;
+      top:25%; right: 2%;
       padding: 20px;
     }
-    #banner01 div > img{
-      height: 70px;
+    #banner01 img{
+      display: block;
+      width: 100%;
     }
   </style>
   <script src="../0106/script/jQuery3_6_3.js"></script>
@@ -67,20 +71,18 @@
 </head>
 <body>
   <div id="banner01">
-    <div>
-      <img src="./images/coupang_02.jpg" alt="banner01">
-      <i class="fa-solid fa-xmark" id="cl_btn"></i>
-    </div>
+    <img src="./images/coupang_02.jpg" alt="banner01">
+    <i class="fa-solid fa-xmark" id="cl_btn"></i>
   </div>
 
 
   <h3>실습예제 '버튼'을 클릭시 모달 레이어가 뜨고 닫기 버튼시 서서히 사라지게 하기</h3>
   <button id="btn11">모달 레이어</button>
 
-  <div class="modal">
+  <!-- <div class="modal">
     <div class="modal01">
       <img src="./images/popup.jpg" alt="팝업">
     </div>
-  </div>
+  </div> -->
 </body>
 </html>
