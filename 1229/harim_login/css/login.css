@@ -1,0 +1,73 @@
+@charset "UTF-8";
+
+main{
+  text-align: center;
+  background-color: #E32929;
+}
+.login_form{
+  padding: 50px 0px;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  background: #FFF;
+}
+main fieldset{
+  margin: 0 auto;
+  display: block;
+}
+main fieldset > legend{
+  display: block;
+  font-size: 32px;
+  font-weight: 800;
+  padding-bottom: 30px;
+}
+main p{
+  padding: 10px 0px;
+}
+main input[type="text"], main input[type="password"]{
+  border-radius: 0px;
+  border: 1px solid #777;
+  width: 270px; height: 10px;
+  padding: 15px;
+}
+input::placeholder{
+  text-align: left;
+}
+.trigger_btn{
+  width: 300px; height: 40px;
+  background-color: #E32929;
+  border: 0px;
+  color: #FFF;
+}
+
+.find{text-align: center;}
+.register{padding: 15px;}
+.social_login_form{
+  width: 300px;
+  margin: 0 auto;
+}
+.social_login{
+  display: block;
+  width: 300px;
+  margin: 15px 0px;
+  height: 40px;
+  color: #222;
+  background-color: #FFF;
+  border: 1px solid #777;
+}
+.social_login span{
+  font-weight: 800;
+}
+.alert_txt{
+  color:red;
+}
+
+.memid{padding-left: 15px;}
+
+#mem_id{
+  padding: 15px;
+  accent-color: #E32929;
+}
+.form_box{
+  display: none;
+}
