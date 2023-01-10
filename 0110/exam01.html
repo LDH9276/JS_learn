@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>제이쿼리를 이용한 스타벅스 예제</title>
+  
+  <style>
+    *{margin: 0; padding: 0;}
+    .banner_wrap{width:100%; height: 640px; overflow: hidden;
+    background: url(./exec02/images/bev_bg.jpg);
+    background-position: center;
+    background-size: 2000px 640px;
+  }
+  article div{
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+    .banner_wrap img{
+      position: absolute;
+      width: auto;
+      height: auto;
+      display: none;
+    }
+    .bg{width:100%}
+    .cup01{top:7%; right: 18%;}
+    .cup02{top:31%; right: 24%;}
+    .cup03{top:39%; right: 6%;}
+    .txt01{top:6%; right: 32%;}
+    .txt02{top:26%; right: 45%;}
+    .txt03{top:30%; right: 5%;}
+  </style>
+</head>
+<body>
+  <article class="banner_wrap">
+    <div>
+      <img src="./exec02/images/bev1_cup.png" alt="컵1" class="cup01">
+      <img src="./exec02/images/bev2_cup.png" alt="컵2" class="cup02">
+      <img src="./exec02/images/bev3_cup.png" alt="컵3" class="cup03">
+      <img src="./exec02/images/bev1_txt.png" alt="컵1 설명" class="txt01">
+      <img src="./exec02/images/bev2_txt.png" alt="컵1 설명" class="txt02">
+      <img src="./exec02/images/bev3_txt.png" alt="컵1 설명" class="txt03">
+    </div>
+  </article>
+
+  <script src="../0106/script/jQuery3_6_3.js"></script>
+  <script>
+$(document).ready(function(){
+  $('.cup01').delay(500).fadeIn();
+  $('.txt01').delay(500).fadeIn();
+  $('.cup02').delay(1000).fadeIn();
+  $('.txt02').delay(1000).fadeIn();
+  $('.cup03').delay(1500).fadeIn();
+  $('.txt03').delay(1500).fadeIn();
+});
+
+  </script>
+
+</body>
+</html>

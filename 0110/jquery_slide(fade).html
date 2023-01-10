@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>제이쿼리 슬라이더 (페이드 아웃)</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    *{margin: 0; padding: 0;}
+    ol, li, ul{list-style: none;}
+    a{color: #222; text-decoration: none;}
+    h2, p, dl, dt, dd{
+      padding: 10px;
+    }
+    article{
+      border : 5px solid #dcdcdc;
+      box-sizing: border-box;
+      position: relative;
+      overflow: hidden;
+    }
+    article::after{
+      content: "";
+      display: block;
+      padding-bottom: 28.1%;
+    }
+    article > h2 {display: none;}
+    article img{
+      width: 100%;
+      vertical-align: top;
+      position:absolute;
+    }
+    article a:first-of-type img{z-index: 10;}
+    article a:nth-of-type(2) img{z-index: 8;}
+    article a:nth-of-type(3) img{z-index: 6;}
+    article a:nth-of-type(4) img{z-index: 4;}
+    article a:last-of-type img{z-index: 2;}
+
+    .c_btn{
+      display: flex;
+      justify-content: space-around;
+      color: #fff;
+      position: absolute;
+      width: 100px;
+      bottom:3%; left:5%;
+      transform: translate(-50%) ;
+      z-index: 9999;
+    }
+  </style>
+</head>
+<body>
+  <h2>효과 메서드를 활용한 fade out slider</h2>
+  <p>이미지 5장을 순서대로 겹치게 하여 4초마다 fadeIn, fadeOut을 사용하여 효과주기</p>
+  <dl>
+    <dt>구현순서</dt>
+    <dd>1. html태그로 이미지 5장을 순서대로 삽입하고 목록태그를 활용하여 이미지번호와 일시 정지, 플레이버튼 목록을 작성한다.</dd>
+    <!-- 움직이는 콘텐츠의 경우 멈추는 버튼을 삽입하여야만 한다. (웹 접근성) -->
+    <dd>2. css를 활용하여 이미지 5장을 position으로 겹치게 하고 z-index속성으로 이미지의 위/아래 순서를 만든다.</dd>
+    <dd>3. 제이쿼리를 사용하여 4초 뒤에 현재 보이는 이미지를 숨기고 다음 이미지가 보이게 하여 해당하는 이미지가 보일때 페이지 번호를 표시한다.</dd>
+    <dd>4. 일시정지 버튼을 클릭시 시간함수(를 제거하여 슬라이드가 멈추게 하고 플레이버튼을 클릭시 시간 함수를 다시 설정하여 움직이도록 한다.</dd>
+    <dd>5. window객체의 resize 이벤트를 사용하여 화면의 너비가 조정되면 이미지 크기와 부모요소 크기도 같이 변하게 만들어 반응형슬라이드를 만든다.</dd>
+  </dl>
+
+  <article>
+    <h2>페이드인 페이드 아웃 반응형 슬라이드</h2>
+    <div>
+      <a href="#none" title="1번"><img src="./exec01/images/01.jpg" alt="1번"></a>
+      <a href="#none" title="2번"><img src="./exec01/images/02.jpg" alt="2번"></a>
+      <a href="#none" title="3번"><img src="./exec01/images/03.jpg" alt="3번"></a>
+      <a href="#none" title="4번"><img src="./exec01/images/04.jpg" alt="4번"></a>
+      <a href="#none" title="5번"><img src="./exec01/images/05.jpg" alt="5번"></a>
+    </div>
+    <ul class="c_btn">
+      <li>&nbsp;</li>
+      <li><i class="fas fa-pause"></i></li>
+    </ul>
+  </article>
+
+  <script src="../0106/script/jQuery3_6_3.js"></script>
+  <script>
+    $(document).ready(function(){
+
+      //1. 초기값
+      let n = 0;
+      //2. 페이지 내용
+      $('.c_btn li:first-child').html((n+1)+'/5');
+      //3. 함수 만들기
+      function fadeInOut(){
+        $('article img').stop().fadeOut(); // 모든 이미지를 숨긴다.
+        if(n == 4){
+          n = 0;
+        }else{
+          n++;
+        }
+        $('article img').eq(n).stop().fadeIn(); // n번째 이미지를 나타낸다
+        $('.c_btn li:first-child').html((n+1)+'/5');
+      } 
+      //4. 시간 계수를 만들어 4초마다 반복 호출
+      let timer = setInterval(fadeInOut, 4000);
+
+      //5. 정지, 재생버튼 추가
+      $('.c_btn li:last-child').click(function(){
+        if($(this).find('i').hasClass('fas fa-pause')==true){
+        clearInterval(timer);
+        $(this).find('i').attr('class', 'fas fa-play');
+        return false;
+      }else{
+        timer = setInterval(fadeInOut, 4000);
+        $(this).find('i').attr('class', 'fas fa-pause');
+        return false;
+        }
+      })
+      //ES6로 구현하기
+//       document.querySelector('.c_btn li:last-child').addEventListener('click', function() {
+//       const iElement = this.querySelector('i');
+//       if (iElement.classList.contains('fa-pause')) {
+//         clearInterval(timer);
+//         iElement.classList.remove('fa-pause');
+//         iElement.classList.add('fa-play');
+//       } else {
+//         timer = setInterval(fadeInOut, 4000);
+//         iElement.classList.remove('fa-play');
+//         iElement.classList.add('fa-pause');
+//       }
+// });
+    });
+
+  </script>
+
+</body>
+</html>
