@@ -1,0 +1,77 @@
+@charset "UTF-8";
+*{margin: 0; padding: 0;}
+
+.skill{
+  width: 800px;
+  margin: 0 auto;
+  padding: 30px;
+  position: relative;
+  z-index: -99;
+  box-shadow: 6px 3px 28px -5px rgba(179,179,179,1);
+  border-radius: 20px;
+  box-sizing: border-box;
+}
+.title{
+  width: 200px; height: 40px;
+  position: absolute;
+  background: #fff;
+  line-height: 40px;
+  text-align: center;
+  box-shadow: 6px 3px 28px -5px rgba(179,179,179,1);
+  border-radius: 50px;
+  top:-20px; left: 300px;
+}
+ul > li{
+  line-height: 40px;
+  list-style: none;
+}
+ul > li > span{
+  display: inline-block;
+  width: 110px;
+  text-align: right;
+  padding-right: 20px;
+}
+#total01, #total02, #total03, #total04, #total05{
+  text-align: left;
+  padding-left: 20px;
+  width: 40px;
+}
+
+.bar02{
+  width: 480px; background: #dcdcdc;
+  position: relative;
+  display: inline-block;
+  height: 16px;
+  line-height: 40px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 6px 3px 28px -5px rgba(179,179,179,1);
+}
+.bar01{
+  position : absolute; 
+  left: 0;
+  height: 16px;
+  width: 0%; 
+  background: orange; 
+  box-shadow: 6px 3px 28px 2px rgba(107,107,107,.4);
+  z-index: 999;}
+
+.steve{
+  margin: 0 auto;
+  width: 800px;
+  height: 400px;
+  box-shadow: 6px 3px 28px -5px rgba(179,179,179,1);
+  position: relative;
+  overflow: hidden;
+}
+#jobs{
+  position: absolute;
+  width:auto; height: 100%;
+  right: 0px; bottom: -500px;
+}
+#jobs_txt{
+  display: none;
+  position: absolute;
+  width: 150px;
+  top:150px; left: 100px;
+}

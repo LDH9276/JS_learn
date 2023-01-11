@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery animate를 이용한 능력치 애니메이션</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <div style="height: 80px;"></div>
+  <div class="skill">
+    <div class="title">
+      <h2>My skill</h2>
+    </div>
+    <ul>
+      <li>
+        <span>HTML</span> 
+        <div class="bar02"><div class="bar01" id="html_skill"></div></div>
+        <span id="total01">90%</span>
+      </li>
+      <li>
+        <span>CSS</span>
+        <div class="bar02"><div class="bar01" id="css_skill"></div></div>
+        <span id="total02">95%</span>
+      </li>
+      <li>
+        <span>JAVASCRIPT</span>
+        <div class="bar02"><div class="bar01" id="js_skill"></div></div>
+        <span id="total03">75%</span>
+      </li>
+      <li>
+        <span>JQUERY</span>
+        <div class="bar02"><div class="bar01" id="jq_skill"></div></div>
+        <span id="total04">80%</span>
+      </li>
+      <li>
+        <span>PHP</span>
+        <div class="bar02"><div class="bar01" id="php_skill"></div></div>
+        <span id="total05">70%</span>
+      </li>
+    </ul>
+  </div>
+  <div style="height: 80px;"></div>
+
+  <article class="steve">
+    <img src="./images/jobs.png" alt="jobs" id="jobs">
+    <img src="./images/jobs_text.gif" alt="txt" id="jobs_txt">
+
+
+  </article>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <script>
+    $(document).ready(function(){
+
+      let htmlSkill = 90;
+      let cssSkill = 95;
+      let jsSkill = 75;
+      let jqSkill = 80;
+      let phpSkill = 70;
+
+      $('#html_skill').animate({'width':htmlSkill+'%'}, 1200, 'easeOutExpo');
+      $('#css_skill').delay(200).animate({'width':cssSkill+'%'}, 1200, 'easeOutExpo');
+      $('#js_skill').delay(400).animate({'width':jsSkill+'%'}, 1200, 'easeOutExpo');
+      $('#jq_skill').delay(600).animate({'width':jqSkill+'%'}, 1200, 'easeOutExpo');
+      $('#php_skill').delay(800).animate({'width':phpSkill+'%'}, 1200, 'easeOutExpo');
+
+      $('#jobs').delay(100).animate({'bottom':'0px'}, 2000, 'easeOutExpo');
+      $('#jobs_txt').delay(1500).fadeIn(400);
+
+    })
+
+
+  </script>
+
+
+  
+</body>
+</html>

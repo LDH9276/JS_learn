@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>제이쿼리 animate메서드</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <style>
+    .circle{
+    width: 100px; height: 100px;
+    border-radius: 50%;
+    background: #f00;
+    position: relative;
+    text-align: center; line-height:100px;
+    color: #fff;}
+    /* #up_btn{ } */
+    #hoho{
+      position: relative;
+    }
+    button{
+      background: #fff;
+      border: 1px solid #777;
+      color: #777;
+      border-radius: 0px;
+      padding: 5px 15px;
+    }
+    .box{
+      width: 100px; height: 100px;
+      background-color: #ff0;
+      margin-bottom: 20px;
+      position: relative;
+    }
+    .bar01, .bar02, .bar03{
+      width: 10px; height: 30px;
+      line-height: 30px;
+      margin: 10px 0px;
+    }
+    .bar01{background: orange; color: #fff;}
+    .bar02{background: orangered; color: #fff;}
+    .bar03{background: red; color: #fff;}
+
+  </style>
+</head>
+<body>
+  <h2>제이쿼리 animate메서드</h2>
+  <p>제이쿼리에서는 효과와 애미네이트 메소드를 사용하여 사용자가 선택한 요소를 다양하게 움직이게 만들 수 있다.</p>
+  <h3>animate 메서드 작성법</h3>
+  <p>$('대상').animate('속성', 값).[시간, 가속도, 콜백함수];</p>
+  <p>('속성', 값) - css속성과 값을 말하며, '값'에는 자바스크립트 변수나 연산자를 사용할 수 있다.</p>
+  <p>시간 - 애니메이션이 동작하는 시간을 말하며 1/1000초 단위로 나타냄.</p>
+  <p>가속도 - easing 메서드를 활용한 값을 말한다. (이미지 참조)</p>
+  <p>콜백함수 - callback faunction으로서 애니메이션 동작이 끝나면 다음 동작을 이어서 실행하고자 할 때 사용한다.</p>
+  
+  <h3>animate 메서드를 활용하여 '원' 움직이게 하기</h3>
+  <div class="circle">circle</div>
+  <button type="button" id="btn01">play</button>
+  <button type="button" id="btn02">pause</button>
+  <button type="button" id="btn03">reset</button>
+
+  <h3>자바스크립트 절대값을 활용하여 캐릭터 위치 조정하기</h3>
+  <img src="./images/charator.png" alt="호호" id="hoho">
+  <div class="key_wrap">
+    <button type="button" id="up_btn">▲</button>
+    <button type="button" id="down_btn">▼</button>
+    <button type="button" id="left_btn">◀︎</button>
+    <button type="button" id="right_btn">▶︎</button>
+  </div>
+
+  <h3>box에 마우스 오버시 애니메이션 연속 동작하게 하기</h3>
+  <div class="box">&nbsp;</div>
+  <div class="box">&nbsp;</div>
+  <div class="box">&nbsp;</div>
+  <div class="box">&nbsp;</div>
+  <div class="box">&nbsp;</div>
+
+
+  <h3>제이쿼리 UI라이브러리를 사용하여 속도감 주기</h3>
+  <p>jquery.com 사이드의 왼쪽 상단의 ui탭을 클릭하고 왼쪽 easing 메뉴에서 jquery.ui라이브러리를 찾아 연결하여 사용한다.</p>
+  <img src="./images/easing.png" alt="easing">
+
+  <div class="bar01">&nbsp;</div>
+  <button type="button" id="btn05">EaseOutQuint</button>
+  <div class="bar02">&nbsp;</div>
+  <button type="button" id="btn06">EaseOutElastic</button>
+  <div class="bar03">&nbsp;</div>
+  <button type="button" id="btn07">EaseinBounce</button>
+
+  <h3>실습 - 자신의 능력치 표현하기(html / css / javascript, jQuery / UI,UX design</h3>
+
+  <script>
+    $(document).ready(function(){
+
+      //클릭 이벤트
+      $('#btn01').click(function(){
+        $('.circle').animate({'left':'500px'}, 1500)
+      });
+      $('#btn02').click(function(){
+        $('.circle').stop(); //stop 메서드는 애니메이션의 중지
+      });
+      $('#btn03').click(function(){
+        $('.circle').animate({'left':'0px'}, 1500)
+      });
+
+      // 버튼 이벤트
+      let n = 50;
+      $('#left_btn').click(function(){
+        $('#hoho').animate({'left':'-='+n}, 500)
+      });
+      $('#right_btn').click(function(){
+        $('#hoho').animate({'left':'+='+n}, 500)
+      });
+      $('#up_btn').click(function(){
+        $('#hoho').animate({'top':'-='+n}, 500)
+      });
+      $('#down_btn').click(function(){
+        $('#hoho').animate({'top':'+='+n}, 500)
+      });
+
+      // 키보드 이벤트
+      $(document).keydown(function(event) {
+      if ( event.keyCode == 87) {
+        $('#hoho').animate({'top':'-='+n}, 100); }
+      });
+      $(document).keydown(function(event) {
+      if ( event.keyCode == 83) {
+        $('#hoho').animate({'top':'+='+n}, 100); }
+      });
+      $(document).keydown(function(event) {
+      if ( event.keyCode == 65) {
+        $('#hoho').animate({'left':'-='+n}, 100); }
+      });
+      $(document).keydown(function(event) {
+      if ( event.keyCode == 68) {
+        $('#hoho').animate({'left':'+='+n}, 100); }
+      });
+
+      // 마우스 오버 이벤트
+      $('.box').mouseenter(function(){
+        $(this).animate({'left':'500px'}, 1500)
+      });
+      $('.box').mouseleave(function(){
+        $(this).animate({'left':'0px'}, 1500)
+      });
+
+        $('#btn05').click(function(){
+          $('.bar01').animate({'width':'500px'}, 1000, 'easeOutQuint');
+        });
+        $('#btn06').click(function(){
+          $('.bar02').animate({'width':'500px'}, 1000, 'easeOutElastic');
+        });
+        $('#btn07').click(function(){
+          $('.bar03').animate({'width':'500px'}, 1000, 'easeInBounce');
+        });
+
+
+      //
+
+
+    });
+  </script>
+</body>
+</html>
