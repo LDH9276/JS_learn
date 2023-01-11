@@ -64,6 +64,7 @@ ul > li > span{
   position: relative;
   overflow: hidden;
 }
+.steve > h3{display: none;}
 #jobs{
   position: absolute;
   width:auto; height: 100%;
