@@ -36,7 +36,6 @@ ul > li > span{
   padding-left: 20px;
   width: 40px;
 }
-
 .bar02{
   width: 480px; background: #dcdcdc;
   position: relative;
@@ -54,8 +53,8 @@ ul > li > span{
   width: 0%; 
   background: orange; 
   box-shadow: 6px 3px 28px 2px rgba(107,107,107,.4);
-  z-index: 999;}
-
+  z-index: 999;
+}
 .steve{
   margin: 0 auto;
   width: 800px;
