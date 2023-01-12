@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>제이쿼리- 애니메이트 실습예제 (aside)</title>
+  <style>
+    aside{
+      position: fixed;
+      right: 0px; top: 0px;
+      width: 104px;
+    }
+    .fas{
+      background: rgb(236, 167, 179);
+      color: #fff;
+      font-size: 30px;
+      padding:  10px 8px;
+      position: absolute;
+      top: 50%; right: 104px;
+      transform: translateY(-30px);
+    }
+
+  </style>
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+</head>
+<body>
+  <h2>제이쿼리- 애니메이트 실습예제 (aside)</h2>
+  <p>웹페이지의 오른쪽 사이드에 위치하는 퀵메뉴를 화면에 숨기거나 나오게하기</p>
+  <p>쇼핑몰 오른쪽 aside영역에 주문조회, 배송조회, 최근 본 상품, 화면스크롤 버튼, top 버튼 요소들을 방향버튼 클릭시 animate메서드로 화면에 숨기거나 클릭시 다시 나오게 한다.</p>
+  <p>1개의 버튼에 2가지 기능을 만들고 (토클): '>'버튼을 클릭하면'<'모양으로 변경.</p>
+
+  <aside>
+    <i class="fas fa-angle-right"></i>
+    <img src="./images/quick.jpg" alt="퀵메뉴">
+  </aside>
+
+  <script>
+
+    $(function(){
+      let side_btn = $('aside i.fas');
+      let n = 1;
+
+      side_btn.click(function(){
+        if (n == 1){
+        $('aside').animate({'right':'-104px'}, 500, 'easeOutQuint');
+        $(this).css({'transform':'rotate(180deg)'})
+        n = 0;
+        }else{
+          $('aside').animate({'right':'-0px'}, 500, 'easeOutQuint');
+          $(this).css({'transform':'rotate(0deg)'})
+          n = 1;
+        }
+      
+      
+      });
+    });
+
+  </script>
+  
+</body>
+</html>
