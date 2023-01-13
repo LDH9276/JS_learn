@@ -32,14 +32,14 @@ $(function(){
   function moveLeft(){
     //console.log('왼쪽 이동해요~');
     //왼쪽으로 3200만큼 이동하고 
-    $('.slide ul').stop().animate({'margin-left':-img_w*2},500,function(){
+    $('.slide ul').animate({'margin-left':-img_w*2},500,function(){
       //왼쪽 첫번째 li태그를 마지막 li태그의 뒤쪽에다가 자리를 옮긴다.
       $('.slide li:first-child').insertAfter('.slide li:last-child');
       $('.slide ul').css('margin-left',-img_w);
     });
   }
   function moveRight(){
-    $('.slide ul').stop().animate({'margin-left':'0px'},500,function(){
+    $('.slide ul').animate({'margin-left':'0px'},500,function(){
       //오른쪽 마지막 li태그를 왼쪽 첫번째 li태그의 앞에 자리를 옮긴다.
       $('.slide li:last-child').insertBefore('.slide li:first-child');
       $('.slide ul').css('margin-left',img_w);
