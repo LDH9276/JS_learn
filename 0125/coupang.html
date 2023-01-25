@@ -34,6 +34,33 @@
                 timer = setInterval(imgAttr, 3000);
             });
             });
+
+            //방향키 위를 누르면 n 증가 아니면 감소
+            $(document).keydown(function(e){
+                if (e.keyCode == 37) {
+                    clearInterval(timer);
+                    n--;
+                    if (n<0) {
+                        n=5;
+                    }
+                    url = $('.banner nav li a').eq(n).attr('href');
+                    $('.banner_img').attr({'src':url});
+                    $('.banner nav li span').eq(n).addClass('mask').parent().parent().siblings().find('span').removeClass('mask');
+                } else if (e.keyCode == 39) {
+                    clearInterval(timer);
+                    n++;
+                    if (n>5) {
+                        n=0;
+                    }
+                    url = $('.banner nav li a').eq(n).attr('href');
+                    $('.banner_img').attr({'src':url});
+                    $('.banner nav li span').eq(n).addClass('mask').parent().parent().siblings().find('span').removeClass('mask');
+                } else if (e.keyCode == 32) {
+                    clearInterval(timer);
+                    timer = setInterval(imgAttr, 3000);
+                }
+            });
+
     });
 
     </script>
@@ -41,6 +68,7 @@
     <style>
         *{margin: 0; padding: 0;}
         ol, ul, li{list-style: none;}
+        body{overflow-x: hidden;}
         .banner, .banner_wrap > div{
             display: flex;
             justify-content: center;
