@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery Slide</title>
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    li,
+    ol,
+    ul {
+        list-style: none;
+    }
+    a {
+        text-decoration: none;
+        color: #333;
+    }
+    h2,
+    h2+ul > li {
+        padding: 10px;
+    }
+    .slide {
+        width: 340px;
+        height: 378px;
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+        left: 0;
+        border: 2px solid #333;
+    }
+    .slide ul {
+        display: flex;
+    }
+    .slide ul li img {
+        vertical-align: top;
+    }
+    i.fas {
+        position: absolute;
+        bottom: 10px;
+        color: #FFF;
+        font-size: 24px;
+        cursor: pointer;
+    }
+    i.fas:hover {
+        color: #dcdcdc;
+    }
+    i.fa-angle-left {
+        right: 100px;
+    }
+    i.fa-angle-right {
+        right: 70px;
+    }
+    i.fa-play {
+        right: 40px;
+    }
+    i.fa-pause {
+        right: 10px;
+    }
+    .page {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        color: #FFF;
+        font-size: 18px;
+        z-index: 10;
+    }
+
+    </style>
+
+<script>
+    $(document).ready(function(){
+        // 1. 변수 선언
+        let slide = $('.slide > ul');
+        let n = $('.page');
+        let l_Btn = $('.fa-angle-left');
+        let r_Btn = $('.fa-angle-right');
+        let play_Btn = $('.fa-play');
+        let pause_Btn = $('.fa-pause');
+        let img_w = $('.slide img').width();
+
+        let num = 1;
+        n.text(num + ' / 3');
+        
+        // 2. 1번 슬라이드 앞에 3번 배치
+        $('.slide ul > li:last-child').insertBefore('.slide ul > li:first-child');
+        slide.css('margin-left', -img_w);
+
+        // 3. 좌우 버튼 클릭시 함수 호출
+        function moveLeft(){
+            slide.stop().animate({'marginLeft': 0}, 500, function(){
+                $('.slide ul > li:last-child').insertBefore('.slide ul > li:first-child');
+                slide.css('margin-left', -img_w);
+            });
+            if(num == 1){
+                    num = 3;
+                } else {
+                    num --;
+                }
+                n.text(num + ' / 3');
+        }
+
+        function moveRight(){
+            slide.stop().animate({'marginLeft': -img_w*2}, 500, function(){
+                $('.slide ul > li:first-child').insertAfter('.slide ul > li:last-child');
+                slide.css('margin-left', -img_w);
+            });
+            if(num == 3){
+                    num = 1;
+                } else {
+                    num ++;
+                }
+                n.text(num + ' / 3');
+        }
+
+        let timer = setInterval(moveRight, 3000);
+
+        // 4. 컨트롤 버튼 클릭시 함수 호출
+        l_Btn.click(function(){
+            clearInterval(timer);
+            moveLeft();
+        });
+        r_Btn.click(function(){
+            clearInterval(timer);
+            moveRight();
+        });
+        // 5. 좌, 우 버튼 마우스 아웃 시 imer 인터벌 재시작
+        l_Btn.mouseleave(function(){
+            clearInterval(timer);
+            timer = setInterval(moveRight, 3000);
+        });
+        r_Btn.mouseleave(function(){
+            clearInterval(timer);
+            timer = setInterval(moveRight, 3000);
+        });
+        play_Btn.click(function(){
+            timer = setInterval(moveRight, 3000);
+        });
+        pause_Btn.click(function(){
+            clearInterval(timer);
+        });
+    });
+
+</script>
+
+
+
+</head>
+<body>
+    <h2>제이쿼리 슬라이드 (좌, 우 버튼 + 플레이, 스탑 + 페이지 번호</h2>
+    <ul>
+        <li>3장의 사진을 가로로 배치한다.</li>
+        <li>오른쪽 끝에 있는 목록을 1의 앞에 배치한다.</li>
+        <li>moveLeft, moveRight 함수를 작성하여 좌 우측으로 각각 움직이는 애니메이션을 작성한다.</li>
+        <li>setInterval 객체를 사용하여 3초마다 함수를 호출하여 자동으로 움직이게 한다.</li>
+        <li>슬라이드의 왼쪽 하단에 페이지번호를 삽입한다.</li>
+        <li>슬라이드의 오른쪽에 좌, 우 버튼을 만들고 클릭시 각각 해당 함수가 호출되어 슬라이드가 움직이게 한다.</li>
+        <li>슬라이드의 오른쪽 하단 끝에 플레이, 스탑 버튼을 만들고 각각 클릭시 시간이 플레이, 스탑이 되도록 한다.</li>
+    </ul>
+
+    <article class="slide">
+        <ul>
+            <li><a href="#none" title=""><img src="./images01/01.jpg" alt="01"></a></li>
+            <li><a href="#none" title=""><img src="./images01/02.jpg" alt="02"></a></li>
+            <li><a href="#none" title=""><img src="./images01/03.jpg" alt="03"></a></li>
+        </ul>
+        <i class="fas fa-angle-right"></i>
+        <i class="fas fa-angle-left"></i>
+        <i class="fas fa-play"></i>
+        <i class="fas fa-pause"></i>
+        <span class="page">&nbsp;</span>
+    </article>
+
+</body>
+</html>

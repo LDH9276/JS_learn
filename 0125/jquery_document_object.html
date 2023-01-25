@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jquery_document_object(문서객체, DOM)관련 메서드</title>
+</head>
+<body>
+    <h2>제이쿼리 문서객체(DOM)관련 메서드</h2>
+    <p>문서객체조작이란? DOM(문서객체모델)에서 HTML문서안에서 모든 요소들과 내용들을 제이쿼리를 사용하여 글자를 변경하거나 추가, 삭제, 속성값을 변경할 수 있는 것을 말한다.</p>
+    <p>https://oscarotero.com/jquery/페이지의 API에서 'ATTRIBUTES', 'MANIPULATION' 카테고리에서 메소드 확인가능.</p>
+
+    <h3>문서내용을 변경하기 위한 메서드</h3>
+    <ul>
+      <li>$('대상').text(); - html요소를 선택하여 내용을 입력하거나 가져오기 위한 메소드 (==.document.getElementById.innerText="";</li>
+      <li>$('대상').html(); - html요소를 선택하여 html태그요소를 추가하거나 가져오기 위한 메소드(==document.getElementById.innerHTML="";</li>
+      <li>$('대상').attr(); - html요소를 선택하여 속성값을 추가하거나 변경하기 위한 메서드</li>
+      <li>$('대상').val(); - html요소를 선택하여 input요소의 속성값을 추가하거나 변경하기 위한 메서드</li>
+      <li>$('대상').empty(); - 내용지우기</li>
+      <li>$('대상').remove(); - 요소지우기</li>
+      <li>$('대상').addClass(); - 클래스 추가하기</li>
+      <li>$('대상').removeClass(); - 클래스 제거하기</li>
+      <li>$('대상').hasClass(); - 클래스 존재여부확인</li>
+      <li>$('대상').toggleClass(); - 클래스 토글 적용</li>
+      <li>$('대상').appendTo(); - 부모내용 마지막 위치로 이동하기</li>
+      <li>$('대상').prependTo(); - 부모내용 처음 위치로 이동하기</li>
+    </ul>
+
+</body>
+</html>
