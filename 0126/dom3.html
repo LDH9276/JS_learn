@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery DOM add_remove (내용추가, 삭제)</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        img{width: 600px;}
+        .list01{
+            border: 3px solid #f00
+        }
+        .box01{
+            width: 200px; height: 100px;
+            background-color: #ff0;
+            border: 2px solid rgb(0, 0, 255);
+            color: #f00;
+        }
+        .box02{display: none;}
+    </style>
+    <script>
+        $(document).ready(function(){
+            $('#btn01').click(function(){
+                $('.list01').append('<li>선택한 요소(부모)의 맨 뒤쪽으로 내용을 추가하기</li>');
+            });
+            $('#btn02').click(function(){
+                $('.list01').prepend('<li>선택한 요소(부모)의 맨 앞쪽으로 내용을 추가하기</li>');
+            });
+            //해당 요소는 부모요소의 바깥쪽에 추가된다.
+            $('#btn03').click(function(){
+                $('.list01').before('<p>선택한 요소(부모)의 앞쪽에 내용을 추가하기</p>');
+            });
+            $('#btn04').click(function(){
+                $('.list01').after('<p>선택한 요소(부모)의 뒤쪽에 내용을 추가하기</p>');
+            });
+
+            $('#btn05').click(function(){
+                $('.box01').empty();
+            });
+            $('#btn06').click(function(){
+                $('.box01').remove();
+            });
+
+            let box = '<div class="box01">해당 박스를 클릭하면 내용만 삭제되거나 box01태그가 삭제</div>'
+
+            $('#btn07').click(function(){
+
+                if($('.box01').length > 0){
+                    $('.box01').text('해당 박스를 클릭하면 내용만 삭제되거나 box01태그가 삭제');
+                } else {
+                    $('.list02').after(box);
+                }
+            });
+        
+        });
+    </script>
+</head>
+<body>
+    <h2>제이쿼리 문서 객체모델 - 내용추가 삭제</h2>
+    <p>객체 편집 메서드는 html 문서 안에서 사용자가 선택한 요소로 앞쪽이나 뒤쪽에 내용을 추가하거나 복제, 삭제하는 매서드</p>
+    <img src="./images01/before_after.jpg" alt="설명">
+
+
+    <h3>jQuery DOM add_remove (내용추가, 삭제)</h3>
+    <ul class="list01">
+        <li>append() : 선택한 요소(부모)의 맨 뒤쪽으로 내용을 추가하기</li>
+        <li>prepend() : 선택한 요소(부모)의 맨 앞쪽으로 내용을 추가하기</li>
+        <li>after() : 선택한 요소의 뒤에 내용을 추가</li>
+        <li>before() : 선택한 요소의 앞에 내용을 추가</li>
+        <li>insertbefore() or insertAfter : 선택한 요소의 앞/뒤에 자리배치</li>
+    </ul>
+
+    <button id="btn01">append()</button>
+    <button id="btn02">prepend()</button>
+    <button id="btn03">after()</button>
+    <button id="btn04">before()</button>
+
+    <p>내용추가 메소드는 이메일추가, 쇼핑몰 콘텐츠 '더보기', 모달윈도, 갤러리 작품 더보기, 공지사항 더보기, FAQ 더보기 등 내용을 추가하고자 할 때 응용할 수 있다.</p>
+
+    <p>A insertAfter(B), A insertBefore(B)를 사용하면 A라는 요소의 앞쪽에 B라는 요소를 배치할 수 있고, B라는 요소의 뒤쪽에 A요소를 배치할 수도 있다. after(), before()메소드와 기능은 같지만 사용법이 다르다.</p>
+    <pre>예)
+        $('A').after('B'); - A요소의 바깥쪽으로 뒤에 B내용을 추가한다.<br>
+        $('B').insertAfter('A'); - A요소의 바깥쪽으로 뒤에 B내용을 추가한다.
+    </pre>
+
+        <h3>내용 삭제하기(Remove)</h3>
+        <p>사용자가 선택한 요소를 찾아서 내용만 지우거나, 태그요소 자체를 삭제할 수 있다.</p>
+        <ul class="list02">
+            <li>empty() : 사용자가 선택한 요소의 내용만 삭제</li>
+            <li>remove() : 사용자가 선택한 요소를 삭제</li></body>
+        </ul>
+
+        <div class="box01">해당 박스를 클릭하면 내용만 삭제되거나 box01태그가 삭제</div>
+
+        <button id="btn05">empty()</button>
+        <button id="btn06">remove()</button>
+        <button id="btn07">원상복구하기</button>
+</html>

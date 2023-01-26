@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery_DOM_modal_window</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>    
+    *{margin: 0; padding: 0;}
+    h3{padding: 15px;}
+    h3+p{padding: 15px; line-height: 25px;}
+    .modal{
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 100;
+    }
+    .modal-item{
+      width: 350px; height: 350px;
+      position: relative;
+    }
+    .modal-item img{
+      width: 100%; height: 100%;
+    }
+    .today, .close{
+      position: absolute;
+      color: #FFF;
+      bottom: 0px;
+      width: 175px;
+      text-align: center;
+      line-height: 45px;
+      cursor: pointer;
+    }
+    .today{
+      left: 0px;
+    }
+    .today *{
+      cursor: pointer;
+    }
+    .close{
+      right: 0px;
+    }
+    input[type="checkbox"]{
+        display: none;
+      }
+    input[type="checkbox"] + label{
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        border:1px solid #FFF;
+        position: relative;
+        transform: translateY(3px);
+      }
+    input[id="modal-today-not-open"]:checked + label::after{
+        font-weight: 200;
+        content:'✓';
+        font-size: 15px;
+        width: 15px;
+        height: 15px;
+        text-align: center;
+        position: absolute;
+        left: 0;
+        top: -15px;
+      }
+      .label[for="modal-today-not-open"]{
+        width: 120px; height: 45px;
+      }
+      .today a{
+        color: #FFF;
+        text-decoration: none;
+        margin-left: 5px;
+      }
+      .close a{
+        color: #FFF;
+        width: 175px; height: 45px;
+        text-decoration: none;
+      }
+      </style>
+  <script>
+    $(document).ready(function(){
+    let modal = `
+    <div class="modal">
+        <div class="modal-item">
+        <img src="./images01/popup.jpg" alt="">
+        <p class="today">    
+          <input type="checkbox" id="modal-today-not-open">
+          <label for="ch"></label>
+          <label for="modal-today-not-open">오늘 하루 열지않음</a>
+        </p>
+        <p class="close">
+          <a href="#none" title="닫기">닫기</a>
+        </p>
+        </div>
+      </div>`
+      $('body').append(modal)
+    })
+
+
+
+  </script>
+</head>
+<body>
+  <h2>jQuery_DOM_modal_window(모달 윈도우) 띄우기</h2>
+
+  <h3>모달 윈도우란?</h3>
+  <p>모달 윈도우는 사용자 인터페이서 UI 디자인 개념에서 자식윈도에 부모 윈도우로 돌아가기 전에 사용자와 상호동작을 유도하는 창을 말한다.<br>
+    모달 윈도우는 부모창을 배경으로 어둡게 하고 자식요소가 화면의 가운데 중앙에 배치하도록 하여, 오른쪽 상단에 '닫기' 버튼을 만들어서 닫을 수 있도로 한다. <br>
+    오늘 하루 열지 않음을 클릭하면 체크박스에서 체크되고 '닫기' 버튼을 클릭시 쿠키가 생성되어 모달이 숨겨침 <br>
+    '오늘 하루 열지 않음'을 클릭해도 모달이 닫히도록 하기
+
+  </p>
+
+  <h3>제이쿼리 쿠키를 활용한 더이상 창 띄우지 않기</h3>
+  <p>제이쿼리 쿠키 플러그인 주소 : https://plugins.jquery.com/cookie</p>
+  <p>쿠키 : 서버에서 클라이언트에게 특정 정보를 저장하는 데이터</p>
+  <p>사용자 이름, 아이디, 방문 횟수 등을 기록하여 차후 접속 시 활용</p>
+
+  <!-- 제이쿼리 쿠키 연결하기 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      //쿠키가 존재하는지 확인
+      if($.cookie('modal') == 'none'){ //쿠키가 존재하면
+        $('.modal').hide(); //모달창 숨기기
+      }
+
+      let ch = $('#modal-today-not-open')
+
+
+      function closePop(){
+        if(ch.is(':checked')){
+          $.cookie('modal','none', {expires:1, path:'/'}); //쿠키를 생성한다.
+        }
+        $('.modal').hide();
+      }
+      $('.modal a').click(function(){
+        closePop();
+      });
+
+
+
+    });
+  </script>
+  
+</body>
+</html>

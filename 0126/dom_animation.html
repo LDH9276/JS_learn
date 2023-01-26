@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM 메서드를 활용한 이미지 슬라이드</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    *{margin:0; padding:0;}
+    ul, li, ol{list-style:none;}
+    a{color: #333; text-decoration: none;}
+    h2, p{padding: 10px;}
+    .banner{width:1200px; height:122px; border: 3px solid #f00;
+    margin: 0 auto;}
+    .banner ul{display: flex; margin-left: -355px;}
+    .banner li img{vertical-align: top;}
+  </style>
+  <script>
+    //자동으로 왼쪽으로 움직이는 슬라이드
+    $(function(){
+
+      let mLeft = -355;
+
+      function moveLeft(){
+        $('.banner ul').css({marginLeft:mLeft})
+          mLeft-=2;
+          console.log(mLeft);
+          
+          //마지막 이미지까지 왔을 때, li태그를 맨 앞으로 이동시킨다.
+          if(mLeft==-357){ //마지막 이미지의 left값
+          $('.banner ul li:first-child').insertAfter('.banner ul li:last-child'); //맨 앞에 있는 li태그를 맨 뒤로 이동
+            }else if(mLeft==-711){  //마지막 이미지의 left값이 2배
+              mLeft=-355; //mLeft값을 초기화
+            }
+          };
+          
+      let timer = setInterval(moveLeft, 10);
+
+      //마우스가 올라가면 멈추고, 마우스가 내려가면 다시 움직인다.
+      $('.banner').hover(function(){
+        clearInterval(timer);
+      }, function(){
+        clearInterval(timer);
+        timer = setInterval(moveLeft, 10);
+      });
+    });
+    
+  </script>
+</head>
+<body>
+  <h2>jQuery_DOM_img_slide</h2>
+  <p>7장의 이미지를 사용하여 왼쪽으로 슬라이드되는 애니메이션구현하기</p>
+  <article class="banner">
+    <ul>
+      <li><a href="#none" title=""><img src="./images02/seoul1.jpg" alt="1"></a></li>
+      <li><a href="#none" title=""><img src="./images02/seoul2.jpg" alt="1"></a></li>
+      <li><a href="#none" title=""><img src="./images02/seoul3.jpg" alt="1"></a></li>
+      <li><a href="#none" title=""><img src="./images02/seoul4.jpg" alt="1"></a></li>
+      <li><a href="#none" title=""><img src="./images02/seoul5.jpg" alt="1"></a></li>
+      <li><a href="#none" title=""><img src="./images02/seoul6.png" alt="1"></a></li>
+      <li><a href="#none" title=""><img src="./images02/seoul7.jpg" alt="1"></a></li>
+    </ul>
+  </article>
+</body>
+</html>
