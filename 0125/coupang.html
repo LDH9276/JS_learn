@@ -25,7 +25,7 @@
             $('.banner nav li a').mouseenter(function(){ // a에 마우스를 올리면
                 clearInterval(timer); // timer를 삭제
                 url = $(this).attr('href'); // a의 href 속성값을 변수에 저장
-                n = $(this).index(); // a의 인덱스를 변수에 저장
+                n = $(this).parent().index(); // a의 인덱스를 변수에 저장
                 $('.banner_img').attr({'src':url}); // 변수에 저장된 속성값을 img의 src 속성에 부여
                 $(this).find('span').addClass('mask').parent().parent().siblings().find('span').removeClass('mask'); // a의 자식의 span에 클래스 부여, 나머지는 제거
 
