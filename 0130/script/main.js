@@ -9,6 +9,12 @@ $(function(){
     $('.search-box').toggleClass('serch-on');
   })
 
+  $('.gnb > ul > li > a').click(function(){
+    $(this).parent().find('.lnb').stop().slideToggle();
+    $(this).parentsUntil('nav').siblings().find('.lnb').stop().slideUp();
+    $(this).next().toggleClass('act')
+    $(this).parentsUntil('nav').siblings().find('i.fas').removeClass('act');
+  })
 
     //스크롤 값이 0보다 크면
     $(window).scroll(function(){
@@ -33,5 +39,14 @@ function slider(){
     $('.slide').first().appendTo('.slide_wrap');
   }
 )}
+
+// $('.slide').slice(1).hide();
+
+// function slider(){
+//   $('.slide').first().fadeOut(2000).next().fadeIn(2000);
+//   $('.slide').first().appendTo('.slide_wrap');
+// }
+
+
 let timer = setInterval(slider, 4000);
 })

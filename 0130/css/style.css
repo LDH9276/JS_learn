@@ -7,15 +7,15 @@ body.on{
   overflow: hidden;
 }
 
-*{margin: 0px; padding: 0px;}
-body{font-size: 12px; color: #333;}
+*{ padding: 0px;margin: 0px;}
+body{ color: #333;font-size: 12px;}
 ul, ol, li{list-style: none;}
-a{text-decoration: none; color: #333;}
+a{ color: #333;text-decoration: none;}
 
 #wrap{
-  width: 100%;
   position: absolute;
   right:0px;
+  width: 100%;
   transition: 0.5s;
 }
 .wrap_pos{
@@ -37,9 +37,9 @@ header > h1 img{
   padding-top: 10px;
 }
 footer{
-  background-color: #333;
   color: #fff;
   text-align: center;
+  background-color: #333;
 }
 footer > address{
   line-height: 60px;
@@ -48,18 +48,18 @@ footer > address{
 #toggle{
   position: fixed;
   top: 15px; right: 0px;
-  padding: 10px 10px 10px;
   width: 50px; height: 50px;
-  cursor: pointer;
-  text-align: center;
-  z-index: 9999;
+  padding: 10px 10px 10px;
   line-height: 12px;
+  text-align: center;
+  cursor: pointer;
+  z-index: 9999;
 }
 
 #toggle > span{
   display: inline-block;
-  background: #EF426F;
   width: 40px; height: 4px;
+  background: #EF426F;
   transition: 0.4s;
 }
 
@@ -67,82 +67,107 @@ footer > address{
   position: absolute;
   top:20px; left: 10px;
   width: 40px; height: 40px;
-  z-index: 9999;
   text-align: center;
+  z-index: 9999;
 }
 #search > i{
+  color: #EF426F;
   font-size: 35px;
   line-height: 40px;
   text-align: center;
   cursor: pointer;
-  color: #EF426F;
 }
 .search-box{
   position: absolute;
-  background: #EF426F;
-  width:100%; height: 60px;
   top: 0px;
-  z-index: 10;
+  width:100%; height: 60px;
+  background: #EF426F;
   text-align: center;
+  z-index: 10;
   transition: 0.4s;
 }
 .serch-on{top:80px; z-index: 50;}
 .search-box input{
+  position: relative; top: 15px;
   width: 75%;
   height: 30px;
-  border: 0px;
-  border-radius: 10px;
   padding: 0px 10px;
+  border: 0px;
+  color: #dcdcdc;
+  font-size: 14px;
+  border-radius: 10px;
   box-sizing: border-box;
   margin-right: 10px;
-  font-size: 14px;
-  color: #dcdcdc;
-  position: relative; top: 15px;
 }
 .search-box input:focus{
   outline: none;
 }
 .search-box button{
+  position: relative; top: 15px;
   width: 40px;
   height: 30px;
   border: 0px;
-  border-radius: 10px;
   background: #ffe6ee;
-  position: relative; top: 15px;
-  cursor: pointer;
   color: #EF426F;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 .gnb{
-  position: absolute;
-  right: -80%; top: 0px;
-  padding: 80px 40px;
+  position: absolute; top: 0px;
+  right: -80%;
   width: 80%; height: 100%;
+  padding: 80px 40px;
   background: #EF426F;
   z-index: -1100;
   box-sizing: border-box;
 }
-.gnb ul li a{
+.gnb>ul>li>a{
+  color: #fff;
+  display: inline-block;
+  width: 100px;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 60px;
+}
+.gnb ul li i.fas{
+  color: #ffe6ee;
+  font-size: 18px;
+  transform: rotate(180deg);
+}
+
+.lnb li a{
   color: #fff;
   line-height: 30px;
+  display: block;
 }
+
+.act{
+  transform: rotate(0deg) !important;
+}
+
 .on{
   position: absolute !important;
 }
 
+.lnb{
+  display: none;
+}
+
+
 /*토글 버튼 클릭시 들어갈 서식*/
 .act01{
-  transform: rotate(-45deg);
   position: absolute;
   top: 20px; left: 10px;
+  transform: rotate(-45deg);
   background-color: #fff !important;
 }
 .act02{display: none !important;}
 .act03{
-  transform: rotate(+45deg);
   position: absolute;
   top:20px;
   left: 10px;
+  transform: rotate(+45deg);
   background-color: #fff !important;
 }
 
@@ -151,19 +176,24 @@ main{
   padding-top: 80px;
 }
 .slide_container{
-  width: 100%;
-  overflow: hidden;
   position: relative;
+  width: 100%; height: 665px;
+  overflow: hidden;
 }
 .slide_wrap{
   display: flex;
-  width: 300%;
-  height: 100%;
   top: 0;
   left: 0;
+  width: 300%;
+  height: 100%;
+  position: relative;
 }
-.slide{width: 100%;}
-.slide img{
+.slide{
   width: 100%;
+  top:0px; 
+  left: 0px;
+}
+.slide img{
+  width: 100%; height: 100%;
   vertical-align: middle;
 }
