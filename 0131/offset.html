@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>제이쿼리 오프셋</title>
+  <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+  <style>
+    .box01{width: 500px; height: 250px; background-color: #FF0; border: 3px solid #f00;}
+    .result{background: #ddd; line-height: 50px; color: #f00;}
+    .s01{
+      position: fixed;
+      right: 40px; top: 40px;
+    }
+    .s02{
+      position: fixed;
+      left: 40px; bottom: 40px;
+    }
+    .t_btn{
+      display: none;
+      position: fixed;
+      right: 40px; bottom: 40px;
+      color: #ddd;
+      background: #222;
+      padding: 20px 15px;
+      border-radius: 50%;
+      text-decoration: none;
+    }
+    
+  </style>
+  <script>
+    $(document).ready(function(){
+      $('#btn01').click(function(){
+        let coords = $('.box01').offset();
+        
+        $('.result').text('box01의 위치는 ' + coords.left + '이며, 상단의 좌표는' + coords.top + '이다.')
+      });
+
+      //스크롤 이벤트시 s01 s02에 스크롤 좌표
+      $(window).scroll(function(){
+        let s01 = $(this).scrollTop();
+        let s02 = $(this).scrollLeft();
+        $('.s01').text('상하 스크롤 좌표는 ' + s01 + '이며,')
+        $('.s02').text('좌우 스크롤의 좌표는' + s02 + '이다.')
+        if (s01 > 250){
+        $('.t_btn').fadeIn();
+        } else {
+        $('.t_btn').fadeOut();
+        }
+      });
+      $('.t_btn').click(function(){
+        $('html, body').animate({scrollTop:0, scrollLeft:0}, 3500);
+        return false;
+      });
+    })
+  </script>
+</head>
+<body>
+    <h2>제이쿼리 속성관련 메서드(offset)</h3>
+      <h3>1. offset 메서드</h3>
+      <p>사용자가 선택한 요소의 위쪽이나 왼쪽을 기준으로 브라우저에서 떨어져 있는 위치값을 구하고자 할 때 사용하는 메서드이다.</p>
+      <p>문법 > $('대상').offset() - offset().top, offset().left</p>
+      <div class="box01">
+        현재 박스의 위치값을 알아보기
+      </div>
+      <p class="result"></p>
+      <button type="button" id="btn01">버튼을 클릭하면 박스의 위치값이 표시됩니다.</button>
+
+      <p>onepagelove.com사이트에서 상단 'templates'메뉴에서 'free template' 메뉴를 클릭하여 '데모' 사이트에서 확인</p>
+
+      <h3>2. scroll 메서드</h3>
+      <p>scroll 메서드는 윈도우의 스크롤바의 위차값을 반환하고 설정해주는 메서드이다. (가로, 세로)</p>
+      <ul>
+        <li>scrollTop() : 스크롤바의 세로 위치값을 설정한다.</li>
+        <li>scrollLeft() : 스크롤바의 가로 위치값을 설정한다.</li>
+      </ul>
+
+
+
+      <span class="s01">세로 스크롤값 나오기</span>
+      <span class="s02">가로 스크롤값 나오기</span>
+      <a href="#" title="화면 위로 올라가기" class="t_btn">TOP</a>
+
+      <div style="width: 3000px;
+      height: 1600px;"></div>
+</body>
+</html>
