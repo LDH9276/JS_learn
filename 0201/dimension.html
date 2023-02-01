@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery Demension</title>
+  <style>
+    #box01 {width: 550px;  border: 1px solid #000; padding: 30px; margin: 40px 0;}
+    #box01 img {width: 100%; height: 100%; vertical-align: middle;}
+    .result {width:400px; margin: 10px 0; padding: 10px; border: 1px solid #000;}
+    button {padding: 10px 20px; background-color: #000; color: #fff; border: 0; cursor: pointer;}
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('#btn01').click(function(){
+        let width = $('#box01').width();
+        let height = $('#box01').height();
+        $('.result').text('가로: ' + width + ', 세로: ' + height);
+      });
+      $('#btn02').click(function(){
+        let width = $('#box01').innerWidth();
+        let height = $('#box01').innerHeight();
+        $('.result').text('가로: ' + width + ', 세로: ' + height);
+      });
+      $('#btn03').click(function(){
+        let width = $('#box01').outerWidth();
+        let height = $('#box01').outerHeight();
+        $('.result').text('가로: ' + width + ', 세로: ' + height);
+      });
+      $('#btn04').click(function(){
+        let width = $('#box01').outerWidth(true);
+        let height = $('#box01').outerHeight(true);
+        $('.result').text('가로: ' + width + ', 세로: ' + height);
+      });
+      $('#btn05').click(function(){
+        let width = $(document).width();
+        let height = $(document).height();
+        $('.result').text('가로: ' + width + ', 세로: ' + height);
+      });
+      $('#btn06').click(function(){
+        let width = $(window).width();
+        let height = $(window).height();
+        $('.result').text('가로: ' + width + ', 세로: ' + height);
+      });
+      $('#btn06').click(function(){
+        let width = '400px';
+        let height = '400px';
+        $(window).width(width).height(height);
+      });
+      
+
+    });
+  </script>
+</head>
+<body>
+  <h2>제이쿼리 문서 객체 조작 - Demension(크기, 수치 조작)</h2>
+  <p>제이쿼리에서는 사용자가 선택한 요소의 크기값을 구하거나 크기값을 설정할 수 있다.</p>
+  <ul>
+    <li>.width/height(): 이 메서드는 padding, border, margin을 제외한 요소의 현재 너비를 가져오는 데 사용한다.</li>
+            
+    <li>.innerWidth/Height(): 이 메서드는 padding을 포함하지만 border속성과 margin속성은 제외한다.</li>
+      
+    <li>.outerWidth/Height(): 이 메서드는 margin을 제외한 모든 크기를 가져온다.</li>
+      
+    <li>.outerWidht/Height(true): 이 메서드는 outerWidhth/Height에 margin을 포함하여 가져온다.</li>
+  </ul>
+
+  <div id="box01">
+    <img src="./images/main03.jpg" alt="이미지">
+  </div>
+
+  <button type="button" id="btn01">width/height</button>
+  <button type="button" id="btn02">innerWidth/innerHeight</button>
+  <button type="button" id="btn03">outerWidth/innerHeight</button>
+  <button type="button" id="btn04">outerWidth/innerHeight(true)</button>
+  <button type="button" id="btn05">document 크기</button>
+  <button type="button" id="btn06">window 크기</button>
+  <p class="result">위 버튼을 클릭하면 이곳에 가로, 세로 크기값이 출력된다.</p>
+  <button type="button" id="btn07">window 크기고정</button>
+
+  <p>document 너비와 window의 너비는 문저안의 콘텐츠 가로너비에 따라 다를 수 있다. 윈도우는 브라우저 창의 너비를 / document는 html 문서의 너비에 해당하기 때문에 다르게 나올 수 있다.</p>
+
+  <script>
+    // 1. 윈도우의 너비가 pc, tablet, mobile 해상도 일때 각각 배경색 변경
+    function screen(){
+    let res = $(window).innerWidth();
+      if (res > 320 && res <= 768){
+        $('body').css({'background':'orange'});
+      }
+      else if (res >= 768 && res <= 1024){
+        $('body').css({'background':'orangered'});
+      }
+      else {
+        $('body').css({'background':'red'});
+      }
+    }
+    // 2. 윈도우 창의 너비가 조절될때도 해상도에 따라 배경색이 변경되어야 한다.
+    screen();
+    $(window).resize(function(){
+      screen();
+    });
+  </script>
+</body>
+</html>

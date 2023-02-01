@@ -3,6 +3,7 @@
   --bg-color01: #d63384;
   --t-color01: #333;
   --t-color02: #FFF;
+  --t-color03: #ff0;
 }
 * {
   padding: 0;
@@ -54,6 +55,20 @@ h1 {
   line-height: 60px;
   text-transform: capitalize;
 }
+.gnb ul li a {
+  color: var(--t-color02);
+  line-height: 60px;
+  text-transform: capitalize;
+  transition: all 0.3s;
+}
+.gnb ul li:hover a {
+  color: var(--t-color03) !important;
+  font-size: 20px;
+}
+.gnb ul li a.on {
+  color: var(--t-color03) !important;
+  font-size: 20px;
+}
 
 /* content 영역 시작 */
 #sec01{
@@ -83,6 +98,7 @@ section:nth-child(6){
 }
 section:nth-child(7){
   background: #dcecdc;
+  height: 1100px !important;
 }
 
 /* footer */

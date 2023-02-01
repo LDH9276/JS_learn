@@ -1,0 +1,140 @@
+@charset "UTF-8";
+
+* {
+  padding: 0;
+  margin: 0;
+}
+ol, ul, li{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+}
+body{
+  height: 100vh;
+  overflow-y: hidden;
+}
+header{
+  position: fixed;
+  width: 230px;
+  height: 100%;
+  background-color: rgba(0,0,0,.75);
+  z-index: 9999;
+}
+header h1{
+  padding: 20px 20px 55px;
+  color: #fff;
+  font-size: 30px;
+}
+.gnb li{
+  width:150px;
+  margin-left: 20px;
+  border-bottom: 1px solid #888;
+}
+.gnb li a{
+  display: block;
+  width: 150px;
+  color: #fff;
+  line-height: 80px;
+  transition: 0.3s;
+  will-change: font-size;
+  text-transform: capitalize;
+}
+.gnb li a:hover{
+  font-size: 24px;
+}
+.gnb li a.on{
+  font-size: 24ㅌpx;
+}
+
+main{
+  display: flex;
+  width: 400vw;
+  height: 100%;
+}
+section{
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+section:not(:nth-child(2)) h2{
+  position: absolute;
+  top: 10%;
+  right: 50px;
+  color: #fff;
+  font-size: 50px;
+}
+section:not(:nth-child(2)) p{
+  position: absolute;
+  top: 20%;
+  right: 50px;
+  color: #fff;
+  font-size: 20px;
+  line-height: 38px;
+  text-align: right;
+}
+section:nth-child(2) h2{
+  position: absolute;
+  bottom: 20%;
+  left: 290px;
+  color: #fff;
+  font-size: 50px;
+}
+section:nth-child(2) p{
+  position: absolute;
+  bottom: 10%;
+  left: 290px;
+  color: #fff;
+  font-size: 20px;
+  line-height: 38px;
+  text-align: left;
+}
+
+#car01{
+  background: url(../images/cooper.jpg) no-repeat center center;
+   /* 이미지 가운데 정렬, 반복 없음 */
+  background-size: cover;
+}
+#car02{
+  background: url(../images/tesla.jpg) no-repeat center center;
+  background-size: cover;
+}
+#car03{
+  background: url(../images/lamborghini.jpg) no-repeat center center;
+  background-size: cover;
+}
+#car04{
+  background: url(../images/porsche.jpg) no-repeat center center;
+  background-size: cover;
+}
+
+footer{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: calc(100% - 230px);
+  left: 230px;
+  height: 50px;
+  background-color: rgba(0,0,0,.75);
+  z-index: 9999;
+}
+address{
+  display: block;
+  color: #fff;
+  line-height: 50px;
+  text-align: right;
+  box-sizing: border-box;
+  padding-right: 30px;
+  font-style: normal;
+}
+
+/* 좌표값 */
+.status{
+  position:fixed;
+  display: inline-block;
+  width: 500px; line-height: 40px;
+  background: #888;
+  top:0; right: 0;
+  color: #fff;
+  text-align: center;
+}
