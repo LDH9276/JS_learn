@@ -1,5 +1,12 @@
 $(document).ready(function() {
+  window.addEventListener("load", function() {
+    // Attach the mouse wheel event to the document
+    document.addEventListener("mousewheel", handleMouseWheel);
+  });
 
+  function handleMouseWheel(event) {
+    console.log("Mouse wheel event detected:", event);
+  }
 
   $('.gnb ul li a').click(function(){
     $('.gnb ul li a').removeClass('on');
