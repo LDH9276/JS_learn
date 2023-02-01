@@ -18,7 +18,7 @@ $(document).ready(function() {
     if(scrolls >= $('section').eq(s_Idx).offset().left){ 
       nav.eq(s_Idx).addClass('on').parent().siblings().find('a').removeClass('on'); 
     }
-
+  });
      // 개별적으로 Wheel 이벤트 적용
     $(this).on('mousewheel',function(e){
       
@@ -70,5 +70,4 @@ $(document).ready(function() {
           $("html,body").stop().animate({scrollLeft : moveLeft + "px"}, 300);
       });
     });
-  });
 });
