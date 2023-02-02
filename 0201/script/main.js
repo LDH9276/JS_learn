@@ -14,14 +14,18 @@ $(document).ready(function() {
   })
 
   $(window).scroll(function(){
+      $('section').each(function(){
+      let scrolls = $(window).scrollLeft();
+      let s_Idx = $(this).index();
+      let nav = $('.gnb ul li a');
+      if(scrolls >= $('section').eq(s_Idx).offset().left){ 
+        nav.eq(s_Idx).addClass('on').parent().siblings().find('a').removeClass('on'); 
+      }
+      });
+    });
+
+
   $('main section').each(function(){
-    let scrolls = $(window).scrollLeft();
-    let s_Idx = $(this).index();
-    let nav = $('.gnb ul li a');
-    if(scrolls >= $('section').eq(s_Idx).offset().left){ 
-      nav.eq(s_Idx).addClass('on').parent().siblings().find('a').removeClass('on'); 
-    }
-  });
      // 개별적으로 Wheel 이벤트 적용
     $(this).on('mousewheel',function(e){
       
@@ -72,10 +76,5 @@ $(document).ready(function() {
            //화면 이동 0.3초(300)
           $("html,body").stop().animate({scrollLeft : moveLeft + "px"}, 300);
       });
-    });
-<<<<<<< HEAD
-});
-=======
   });
 });
->>>>>>> bab2d5f970a32b9fcdba06198acdb366dba6f801
