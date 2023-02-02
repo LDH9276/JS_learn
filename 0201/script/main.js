@@ -1,5 +1,8 @@
 $(document).ready(function() {
-
+  window.addEventListener("load", function() {
+    // Attach the mouse wheel event to the document
+    document.addEventListener("mousewheel");
+  });
 
   $('.gnb ul li a').click(function(){
     $('.gnb ul li a').removeClass('on');
@@ -70,4 +73,9 @@ $(document).ready(function() {
           $("html,body").stop().animate({scrollLeft : moveLeft + "px"}, 300);
       });
     });
+<<<<<<< HEAD
 });
+=======
+  });
+});
+>>>>>>> bab2d5f970a32b9fcdba06198acdb366dba6f801
