@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>캐스퍼 클론코딩</title>
+  <!-- pretendard css -->
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/variable/pretendardvariable.css" />
+  <!-- css reset -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <!-- font-awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- jQuery cookie -->
+  <script src="./script/jquery-cookie-1.4.1.js"></script>
+  <!-- jQuery UI -->
+  <script src="./script/jqueryui-1.12.1.js"></script>
+  <!-- JS -->
+  <script src="./script/casper.js"></script>
+  <script src="./script/layout.js"></script>
+  <!-- 기본서식, 공통서식 -->
+  <link rel="stylesheet" href="./css/common.css">
+  <!-- 레이아웃 서식 -->
+  <link rel="stylesheet" href="./css/layout.css">
+  <!-- 메인/콘텐츠 CSS -->
+  <link rel="stylesheet" href="./css/main.css">
+  <!-- swiper -->
+  <link rel="stylesheet" href="./css/swiper.css" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+
+</head>
+<body>
+  <header>
+    <h1>
+      <a href="casper.html" title="메인페이지로 바로가기">
+        <img src="./images/logo-casper_white.png" alt="캐스퍼 로고">
+      </a>
+    </h1>
+
+    <nav>
+      <ul class="gnb" id="gnb">
+        <li><a href="#" title="소개">소개</a></li>
+        <li><a href="#" title="체험">체험</a></li>
+        <li><a href="#" title=" 이벤트">이벤트</a></li>
+        <li><a href="#" title="구매">구매</a></li>
+        <li><a href="#" title="고객지원">고객지원</a></li>
+      </ul>
+    </nav>
+
+    <i class="fas fa-user"></i>
+    <i class="fas fa-bell"></i>
+
+  </header>
+  <nav id="m_nav">
+    <ul>
+      <li class="on"><span>&nbsp;</span><a href="#" title="소개">소개</a></li>
+      <li><span>&nbsp;</span><a href="#" title="체험">체험</a></li>
+      <li><span>&nbsp;</span><a href="#" title="이벤트">이벤트</a></li>
+      <li><span>&nbsp;</span><a href="#" title="구매">구매</a></li>
+      <li><span>&nbsp;</span><a href="#" title="고객지원">고객지원</a></li>
+    </ul>
+  </nav>
+  <main>
+    <section id="main_intro">
+      <h2>캐스퍼 인트로 영상</h2>
+      <article>
+        <h3>CASPER</h3>
+        <p>캐스퍼는 오직 온라인에서만 구매하실 수 있습니다.</p>
+        <a href="https://casper.hyundai.com/vehicles/making/model" title="나만의 캐스퍼 만들기">나만의 캐스퍼 만들기</a>
+        <a href="https://casper.hyundai.com/vehicles/benefit" title="구매 혜택보기">구매 혜택보기</a>
+        <a href="https://casper.hyundai.com/vehicles/highlight" title="자세히 보기">자세히 보기</a>
+      </article>
+      <video autoplay muted loop="infinte">
+        <source src="./images/casper01.mp4" type="video/webm">
+      </video>
+      <a href="#" title="아래로 이동" id="next_btn">아래로 이동</a>
+    </section>
+    <section id="top3">
+      <h2>가장 많이 찾은 캐스퍼 TOP3</h2>
+      <p>지금 가장 인기 있는 조합을 확인해보세요.</p>
+      <div class="swiper top3">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="item"> 
+              <p>1위</p>
+              <p>가솔린 1.0 터보 인스퍼레이션</p>
+              <img src="./images/color_khaki.02b812c.png" alt="톰보이 카키">
+              <ul class="item_box">
+                <li>
+                  <span class="block b01"></span>
+                  <span class="item-info01">외장색상 <br> 톰보이 카키</span>
+                </li>
+                <li>
+                  <span class="block b02"></span>
+                  <span class="item-info01">내장색상 <br> 블랙</span>
+                </li>
+                <li>
+                  <p class="item-name">선택품목 <br> 선택품목 캐스퍼 액티브 II</span>
+                </li>
+                <li>
+                  <p class="item-price">19,600,000<span class="item-won">원</span></p>
+                </li>
+              </ul>
+              <a href="#" title="자세히보기" class="top3-about">견적내기 <i class="fas fa-angle-right"></i></a>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="item"> 
+              <p>2위</p>
+              <p>가솔린 1.0 터보 인스퍼레이션</p>
+              <img src="./images/color_gray.7ad235d.png" alt="톰보이 카키">
+              <ul class="item_box">
+                <li>
+                  <span class="block b01"></span>
+                  <span class="item-info01">외장색상 <br> 톰보이 카키</span>
+                </li>
+                <li>
+                  <span class="block b02"></span>
+                  <span class="item-info01">내장색상 <br> 블랙</span>
+                </li>
+                <li>
+                  <p class="item-name">선택품목 <br> 선택품목 캐스퍼 액티브 II</span>
+                </li>
+                <li>
+                  <p class="item-price">19,600,000<span class="item-won">원</span></p>
+                </li>
+              </ul>
+              <a href="#" title="자세히보기" class="top3-about">견적내기 <i class="fas fa-angle-right"></i></a>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="item"> 
+              <p>3위</p>
+              <p>가솔린 1.0 터보 인스퍼레이션</p>
+              <img src="./images/color_ivory.112b874.png" alt="톰보이 카키">
+              <ul class="item_box">
+                <li>
+                  <span class="block b01"></span>
+                  <span class="item-info01">외장색상 <br> 톰보이 카키</span>
+                </li>
+                <li>
+                  <span class="block b02"></span>
+                  <span class="item-info01">내장색상 <br> 블랙</span>
+                </li>
+                <li>
+                  <p class="item-name">선택품목 <br> 선택품목 캐스퍼 액티브 II</span>
+                </li>
+                <li>
+                  <p class="item-price">19,600,000<span class="item-won">원</span></p>
+                </li>
+              </ul>
+              <a href="#" title="자세히보기" class="top3-about">견적내기 <i class="fas fa-angle-right"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>    
+      </div>
+      <script>
+        let swiper = new Swiper('.top3', {
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          loop: true,
+          autoplay: {
+            delay: 4000,
+            disableOnInteraction: false,
+          }
+        });
+      </script>
+
+      </div>
+      </section>
+    <section id="intro">
+      <h2>캐스퍼 소개</h2>
+    </section>
+    <section id="test">
+      <h2>시승신청</h2>
+    </section>
+    <section id="event">
+      <h2>이벤트&프로모션</h2>
+    </section>
+    <section id="buy">
+      <h2>캐스퍼 구매 안내</h2>
+    </section>
+    <section id="cs">
+      <h2>고객 지원</h2>
+    </section>
+  </main>
+  
+</body>
+</html>

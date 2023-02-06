@@ -1,0 +1,193 @@
+@charset "UTF-8";
+
+#main_intro {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    margin-bottom: 25px;
+}
+#main_intro > video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+#main_intro > h2 {
+    display: none;
+}
+#main_intro article {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    transform: translateY(-50%);
+}
+#main_intro article h3 {
+    color: #fff;
+    font-weight: 600;
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+#main_intro article p {
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+#main_intro article a {
+    display: inline-block;
+    padding: 10px 15px;
+    margin: 0 10px;
+    color: var(--t-color02);
+    text-decoration: underline;
+}
+#main_intro article a:first-of-type {
+    background: var(--bg-color01);
+}
+#main_intro article a:not(:first-of-type) {
+    background: var(--bg-color02);
+}
+#next_btn {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    width: 25px;
+    height: 25px;
+    border: 5px solid rgba(255, 255, 255, .5);
+    color: var(--t-color02);
+    text-indent: -9999px;
+    border-top: none;
+    border-left: none;
+    transform: rotate(45deg) translateX(-50%);
+}
+
+section:not(#main_intro, #cs) {
+    margin: 50px 0px 0px;
+    height: 800px;
+}
+#cs{
+    margin: 50px 0px 0px;
+    background: #ccc;
+    height: 1800px;
+    position: relative;
+}
+
+/* 많이 찾는 캐스퍼 서식 */
+#top3{
+  text-align: center;
+}
+#top3 > h2{
+  font-size: 2rem;
+}
+#top3 > p{
+  font-size: 1rem;
+  font-weight: 400;
+  margin: 20px 0px 60px;
+}
+.top3{
+  width: 100%;
+  height: 650px;
+}
+.item{
+  width: 100%;
+  text-align: center;
+}
+.item > p:first-child{
+    display: inline-block;
+    width: 50px; line-height: 25px;
+    text-align: center;
+    border-radius: 30px;
+    font-size: 1.2em;
+    font-weight: 400;
+    color: var(--t-color03);
+    border: 1px solid var(--t-color03);
+    margin-bottom: 20px;
+}
+.item > p:nth-child(2){
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 60px;
+}
+.item > img{
+  width: 400px;
+  margin-bottom: 60px;
+}
+.item_box{
+  display: flex;
+  width: 700px;
+  margin: 0 auto 40px;
+  justify-content: space-between;
+  font-size: 14px;
+  position: relative;
+}
+.item_box li{
+  width: 200px;
+  height: 40px;
+  margin-bottom: 20px;
+}
+.block{
+  display: block;
+  width: 50px; height: 35px;
+  background: #000;
+  float: left;
+  margin: 0px 20px 0px;
+}
+.b01{background: #0f2b5c;}
+.b02{background: #377da4;}
+.item-info01{
+  font-size: 1em;
+  width: 140px;
+  height: 40px;
+  margin-left: 20px;
+  line-height: 20px;
+  text-align: left;
+  display: block;
+}
+.item-name{
+  font-size: 1em;
+  font-weight: 400;
+  text-align: left;
+  color: var(--t-color01);
+  margin-bottom: 20px;
+  line-height: 20px;
+}
+.item-price{
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 40px;
+  color: var(--bg-color01);
+  margin-bottom: 20px;
+}
+.item_box li:not(:first-child)::after{
+  content: "";
+  display: block;
+  clear: both;
+  width: 1px; height: 40px;
+  background: #000;
+  position: absolute;
+  top: 0px;
+  transform: translateX(-5px);
+}
+
+.item_box li:nth-of-type(3)::after{
+  transform: translateX(-20px);
+}
+.item_box li:last-of-type::after{
+  transform: translateX(-10px);
+}
+.top3-about{
+  padding: 10px 50px;
+  margin: 0 auto;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 30px;
+  color: var(--bg-color01);
+  margin-bottom: 60px;
+  border: 1px solid var(--bg-color01);
+}
+.item-won{
+  font-size: 0.7em;
+  padding-left: 3px;
+}
+
+/* 캐스퍼 소개 서식 */
