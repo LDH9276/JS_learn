@@ -20,6 +20,7 @@
 /* FONT_END */
 :root {
   --swiper-theme-color: #0f2b5c;
+  --swiper-theme-color02: #333;
   /*
   --swiper-preloader-color: var(--swiper-theme-color);
   --swiper-wrapper-transition-timing-function: initial;
@@ -251,7 +252,7 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--swiper-navigation-color, var(--swiper-theme-color));
+  color: var(--swiper-navigation-color02, var(--swiper-theme-color02));
 }
 .swiper-button-prev.swiper-button-disabled,
 .swiper-button-next.swiper-button-disabled {
@@ -280,7 +281,7 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
 }
 .swiper-button-prev,
 .swiper-rtl .swiper-button-next {
-  left: var(--swiper-navigation-sides-offset, 10px);
+  left: var(--swiper-navigation-sides-offset, 45px);
   right: auto;
 }
 .swiper-button-prev:after,
@@ -289,7 +290,7 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
 }
 .swiper-button-next,
 .swiper-rtl .swiper-button-prev {
-  right: var(--swiper-navigation-sides-offset, 10px);
+  right: var(--swiper-navigation-sides-offset, 45px);
   left: auto;
 }
 .swiper-button-next:after,
