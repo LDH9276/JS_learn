@@ -34,7 +34,7 @@ $(document).ready(function(){
   $('#m_nav li, .gnb li').click(function(){
     let ind = $(this).index();
     $('html, body').animate({scrollTop:$('section').eq(ind + 2).offset().top}, 200, 'easeOutQuint');
-    $(this).find('a').preventDefault();
+    return false;
   });
 
 });
