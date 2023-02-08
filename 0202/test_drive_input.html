@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>시승 예약</title>
+</head>
+<body>
+  <form name="faq" method="post" action="./send.php">
+    <fieldset>
+      <legend>온라인 문의</legend>
+      <p class="name">
+        <label for="name">성함</label>
+        <input type="text" name="name" id="name" placeholder="성함을 입력하세요"><br>
+        <span id="t02"></span>
+      </p>
+      <p class="phonenumber">
+        <label for="phonenumber">연락처</label>
+        <input type="tel" name="phonenumber" id="phonenumber" placeholder="연락처를 입력하세요" maxlength="13"><br>
+        <span id="t03"></span>
+      </p>
+      <p class="sms">
+        <input type="radio" name="sms" id="sms01" value="1" checked>
+        <label for="sms01">SMS 수신</label>
+        <input type="radio" name="sms" id="sms02" value="0">
+        <label for="sms02">SMS 미수신</label>
+      </p>
+      <p class="email">
+        <label for="email">이메일</label>
+        <input type="email" name="email" id="email" placeholder="연락받으실 이메일을 입력하세요"><br>
+        <span id="t04"></span>
+      </p>
+      <p class="region">
+        <label for="region">전시장</label>
+        <select name="region" id="region">
+          <option value="">전시장 선택</option>
+          <option value="서초지점">서초지점</option>
+          <option value="강남지점">강남지점</option>
+          <option value="부산지점">부산지점</option>
+          <option value="대구지점">대구지점</option>
+          <option value="광주지점">광주지점</option>
+          <option value="대전지점">대전지점</option>
+        </select>
+        <br>
+        <span id="t04"></span>
+      </p>
+      <p class="s_car">
+        <label for="s_car">차량선택</label>
+        <select name="region" id="s_car">
+          <option value="">차량 선택</option>
+          <option value="캐스퍼">캐스퍼</option>
+          <option value="캐스퍼 레드">캐스퍼 레드</option>
+          <option value="캐스퍼 그레이">캐스퍼 그레이</option>
+          <option value="캐스퍼 올리브">캐스퍼 올리브</option>
+          <option value="캐스퍼 오션블루">캐스퍼 오션블루</option>
+        <span id="t04"></span>
+      </p>
+      <p class="my_car">
+        <label for="my_car">보유차량</label>
+        <input type="text" name="my_car" id="my_car" placeholder="보유중이신 차량을 입력해주세요"><br>
+        <span id="t04"></span>
+      </p>
+      <p class="t_date">
+        <label for="t_date">시승희망일</label>
+        <input type="date" name="t_date" id="t_date">
+        <span id="t04"></span>
+      </p>
+
+        <p class="btn">
+          <input type="reset" value="다시작성하기/취소">
+          <input type="submit" value="시승신청">
+        </p>
+    </fieldset>
+  </form>
+
+  <script>
+    const input = document.querySelectorAll('input');
+    const name = document.querySelector('#name');
+    const email = document.querySelector('#email');
+    const phoneNumber = document.querySelector('#phonenumber');
+    const content = document.querySelector('#content');
+    const subject = document.querySelector('#subject');
+    const submitBtn = document.querySelector('input[type="submit"]');
+
+    submitBtn.addEventListener('click', function(e){
+      const alert00 = document.querySelectorAll('#t01, #t02, #t03, #t04, #t05s');
+      for(let i = 0; i < alert00.length; i++){
+        alert00[i].innerText = '';
+      }
+      if(subject.value === ''){
+        e.preventDefault();
+        const alert01 = document.querySelector('#t01');
+        alert01.innerText = '제목을 입력하세요';
+        } else if (name.value === ''){
+          e.preventDefault();
+          const alert02 = document.querySelector('#t02');
+          alert02.innerText = '성함을 입력하세요';
+        } else if (phoneNumber.value === ''){
+          e.preventDefault();
+          const alert03 = document.querySelector('#t03');
+          alert03.innerText = '연락처를 입력하세요';
+        } else if (email.value === ''){
+          e.preventDefault();
+          const alert04 = document.querySelector('#t04');
+          alert04.innerText = '이메일을 입력하세요';
+        } else if(email.value !== ''){
+          const emailValue = email.value; //이메일의 값
+          const emailCheck = emailValue.indexOf('@'); //@가 있는지 확인
+          const emialDomain = emailValue.indexOf('.'); //도메인의 .이 있는지 확인
+          if(emailCheck === -1){ // @가 없다면
+            e.preventDefault();
+            const alert04 = document.querySelector('#t04');
+            alert04.innerText = '올바른 이메일 형식이 아닙니다';
+          } else if (emialDomain === -1){ //도메인의 .이 없다면
+            e.preventDefault();
+            const alert04 = document.querySelector('#t04');
+            alert04.innerText = '이메일 주소를 다시 확인해주세요';
+          }
+        } else if (content.value === ''){
+          e.preventDefault();
+          const alert05 = document.querySelector('#t05');
+          alert05.innerText = '내용을 입력하세요';
+        }
+      });
+      phoneNumber.addEventListener('keyup', function(){
+        const pNum = phoneNumber.value;
+        if(pNum.length === 3 || pNum.length === 8){
+          phoneNumber.value = pNum + '-';
+        }
+      });
+  </script>
+</body>
+</html>
