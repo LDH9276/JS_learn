@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+:root{
+    --t-color01: #333;
+    --t-color02: #fff;
+    --t-color03: #377da4;
+    --bg-color01: #0f2b5c;
+    --bg-color02: #377da4;
+    --bg-color03: #fff;
+    --f-size01 : 14px;
+    --f-size02 : 16px;
+}
+
+body {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 12px;
+    color: #333;
+    background-color: var(--bg-color03);
+    overflow-x: hidden;
+}
+
+a{text-decoration: none; color: #333;}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    body {width: 100%; height: 100%; margin: 0; padding: 0; font-size: 12px; font-family: '맑은 고딕', 'Malgun Gothic', '돋움', 'Dotum', '굴림', 'Gulim', sans-serif;}
+    ul, li {list-style: none;}
+    a{color: #333; text-decoration: none;}
+    .tab_con * {margin: 0; padding: 0;}
+    .tab_con {width: 865px; height: 460px; margin: 0 auto; position: relative;}
+    .tab_con > h3{font-size: 26px; margin-bottom: 20px;}
+    .tab_con > ul {display: flex;}
+    .tab_con li {width: 25%; height: 50px; text-align: center; border-bottom: 1px solid #333;}
+    .tab_con li > a{display:block; width:100%; line-height: 50px; font-size: 16px;
+      color: #767;
+    }
+    .tab_con li > a.on{
+      color: #333;
+      font-weight: 700;
+      border: 1px solid #333;
+      border-bottom: none !important;
+      background-color: #fff;
+    }
+    .con{
+      position: absolute;
+      width: 865px; height: 330px;
+      bottom:0px; left:0px;
+      text-align: left;
+    }
+    .con:not(.c01){
+      display: none;
+    }
+    .c01{background-color: orange;}
+    .c02{background-color: orangered;}
+    .c03{background-color: red;}
+    .c04{background-color: rgb(125, 0, 0);}
+  </style>
+  <script>
+    $(function(){
+      let t_mnu = $('.tab_con li > a')
+
+      t_mnu.click(function(){
+        let idx = $(this).parent().index();
+        $(this).addClass('on').parent().siblings().find('a').removeClass('on');
+        // $('.con').eq(idx).show().parent().siblings().find('.con').hide();
+        $(this).next().show().parent().siblings().find('.con').hide()
+        return false;
+      });
+    });
+  </script>
+</head>
+<body>
+  <h2>제이쿼리 문서객체 모델 탭메뉴 컨탠츠</h2>
+  <p>탭메뉴 컨텐츠는 메뉴 클릭시 해당하는 컨텐츠가 나오면서 기존 컨텐츠는 보여지고 나머지는 숨겨지는 컨텐츠이다.</p>
+  <p>특정 영역에서만 보이기 때문에 좁은 공간에서 많은 컨텐츠를 담을 때 사용</p>
+
+  <article class="tab_con">
+    <h3>테마로 만나는 패키지 여행</h3>
+    <ul>
+      <li>
+        <a href="" title="" class="on">소아동반</a>
+        <div class="con c01">
+          <p>소아동반</p>
+        </div>
+      </li>
+      <li>
+        <a href="" title="">워터파크</a>
+        <div class="con c02">
+          <p>워터파크</p>
+        </div>
+      </li>
+      <li>
+        <a href="" title="">가성비갑</a>
+        <div class="con c03">
+          <p>가성비갑</p>
+        </div>
+      </li>
+      <li>
+        <a href="" title="">시내중심</a>
+        <div class="con c04">
+          <p>시내중심</p>
+        </div>
+      </li>
+    </ul>
+  </article>
+
+</body>
+</html>
