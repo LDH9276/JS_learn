@@ -41,17 +41,14 @@
 }
 .intro-slide-slide:first-of-type{
   background: url(../img/banner03_bg.png) no-repeat center right;
-  background-position: -150px -50px;
   z-index: 10;
 }
 .intro-slide-slide:nth-of-type(2){
   background: url(../img/banner02-bg.png) no-repeat center right;
-  background-position: -150px -50px;
   z-index: 9;
 }
 .intro-slide-slide:last-of-type{
   background: url(../img/banner01-bg.png) no-repeat center right;
-  background-position: -150px -90px;
   z-index: 8;
 }
 .intro-slide-text{
