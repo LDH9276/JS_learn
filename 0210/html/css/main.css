@@ -238,6 +238,7 @@
   width:100%;
   background: #FFFCF1;
 }
+#brand h2{display: none;}
 #brand article{
   width: 1180px;
   margin: var(--b-center);
