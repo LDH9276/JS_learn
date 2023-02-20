@@ -1,0 +1,16 @@
+{ "gallImgs" : [
+  {"src" : "./img/gall07.webp", "alt" : "갤러리7"},
+  {"src" : "./img/gall08.webp", "alt" : "갤러리8"},
+  {"src" : "./img/gall09.webp", "alt" : "갤러리9"},
+  {"src" : "./img/gall10.webp", "alt" : "갤러리10"},
+  {"src" : "./img/gall11.webp", "alt" : "갤러리11"},
+  {"src" : "./img/gall12.webp", "alt" : "갤러리12"},
+  {"src" : "./img/gall13.webp", "alt" : "갤러리13", "title" : "내용"},
+  {"src" : "./img/gall14.webp", "alt" : "갤러리14"},
+  {"src" : "./img/gall15.webp", "alt" : "갤러리15"},
+  {"src" : "./img/gall16.webp", "alt" : "갤러리16"},
+  {"src" : "./img/gall17.webp", "alt" : "갤러리17"},
+  {"src" : "./img/gall18.webp", "alt" : "갤러리18"}
+]}
+
+  

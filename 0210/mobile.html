@@ -5,34 +5,18 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>사세</title>
+  
   <link rel="stylesheet" href="./css/reset.css" type="text/css">
   <link rel="stylesheet" href="./css/base.css" type="text/css">
-  <link rel="stylesheet" href="./css/common.css" type="text/css">
-  <link rel="stylesheet" href="./css/main.css" type="text/css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" type="text/css">
+  <link rel="stylesheet" href="./css/m_main.css">
+  <link rel="stylesheet" href="./css/m_common.css">
+  <script src="./script/m_main.js" defer></script>
   <script src="./script/jquery3-6-0.js"></script>
-  <script src="./script/prefixfree.js"></script>
-  <script src="./script/main.js" defer></script>
   <script src="./script/maingall.js"></script>
-
-  <!-- 모바일 체크 스크립트 -->
-  <script>
-    if (document.URL.match('move_pc_screen=1')) mobile = null; // PC버전 보기 클릭시 모바일 체크 안함
-    
-    let mobile = ['iPhone', 'iPad', 'BlackBerry', 'Android', 'Windows CE', 'SAMSUNG', 'LG', 'MOT', 'Nokia', 'webOS', 'Opera Mini', 'SonyEricsson', 'Opera Mobi', 'IEMobile', 'Xiaomi', 'Vivo', 'Oppo']; // 모바일 체크할 단어
-
-    for (let i in mobile) {
-      if (navigator.userAgent.match(mobile[i]) != null) { 
-        location.href = './mobile.html';
-        break; // 반복문 종료
-      }
-    }
-  </script>
-
 </head>
 <body>
-
-  <!-- 상단 헤더 -->
+  <!-- 헤더영역 -->
   <header>
     <div class="h-top">
       <h1 class="h-top-logo">
@@ -40,7 +24,13 @@
           <img src="./img/logo-white.webp" alt="사세 로고">
         </a>
       </h1>
-  
+
+      <div class="h-top-toggle">
+        <span>&nbsp;</span>
+        <span>&nbsp;</span>
+        <span>&nbsp;</span>
+      </div>
+
       <nav class="h-top-gnb">
         <ul>
           <li><a href="#" title="사세">사세 <i class="fas fa-angle-down"></i></a>
@@ -72,9 +62,6 @@
             </ul>
           </li>
           <li><a href="#" title="공지사항">공지사항</a>
-            <ul class="sub last">
-              <li>&nbsp;</li>
-            </ul>
           </li>
         </ul>
       </nav>  
@@ -82,7 +69,7 @@
 
   </header>
 
-  <!-- 메인 컨텐츠 -->
+  <!-- 메인영역 -->
   <main>
 
     <!-- 인트로 슬라이드 -->
@@ -184,24 +171,23 @@
       <article>
         <h3 class="m-txt">브랜드 소개</h3>
         <ul class="brand-tab-con">
-          <li class="on"><a href="#" title="사세버팔로">사세버팔로</a></li>
-          <li><a href="#" title="혼술메이트">혼술메이트</a></li>
-          <li><a href="#" title="칙스">칙스</a></li>
-        </ul>
-        <ul class="brand-tab-item">
-          <li>
+          <li class="on"><a href="#" title="사세버팔로">사세버팔로 <i class="fas fa-caret-down"></i></a>
+          <div class="brand-tab-item">
             <p class="brand-tab-item-logo">
-              <img src="./img/brand_logo_buffalo.webp" alt="사세버팔로">
+              <img src="./img/m-brand_logo_buffalo.webp" alt="사세버팔로">
             </p>
             <p class="brand-tab-item-title">버팔로 1인자 <br> 비법 시즈닝의 사세버팔로</p>
             <p class="brand-tab-item-info">사세버팔로는 특제 칠리 시즈닝의 <br> 
               중독성있고 강렬한 매운맛으로 <br> 
               치킨 마니아들에게 사랑받는 제품입니다.
             </p>
-          </li>
-          <li>
+          </div>
+          
+        </li>
+          <li><a href="#" title="혼술메이트">혼술메이트 <i class="fas fa-caret-down"></i></a>
+          <div class="brand-tab-item">
             <p class="brand-tab-item-logo">
-              <img src="./img/brand_logo_home.webp" alt="홈술메이트">
+              <img src="./img/brand_logo_home.webp" alt="혼술메이트">
             </p>
             <p class="brand-tab-item-title">내가 좋아하는 술과 극강조합! <br>
             집에서 즐기는 전문점 안주</p>
@@ -209,8 +195,10 @@
               안주를 집에서 간편하게 즐기는 <br>
               사세의 안주 전문 브랜드입니다.
             </p>
-          </li>
-          <li>
+          </div>
+        </li>
+          <li><a href="#" title="칙스">칙스 <i class="fas fa-caret-down"></i></a>
+          <div class="brand-tab-item">
             <p class="brand-tab-item-logo">
               <img src="./img/brand_logo_chics.webp" alt="칙스">
             </p>
@@ -219,17 +207,19 @@
             <p class="brand-tab-item-info">칙스는 ‘Chicken Snack’또는 <br>
               멋지고 세련된 스낵의 의미인 ‘Chic Snack’의 줄임말로써, <br>
               멋지고 세련되게 즐기는 새로운 핑거푸드 브랜드입니다.</p>
+          </div>
           </li>
         </ul>
       </article>
-      
     </section>
 
     <!-- 베스트셀러 상품 -->
     <section id="best-seller">
       <h2 class="m-txt">베스트셀러 상품</h2>
-      <span class="h3-text best-btn on">베스트</span>
-      <span class="h3-text best-btn">이번주 인기 상품</span>
+      <p class="best-btn-wrap">
+        <span class="h3-text best-btn on">베스트</span>
+        <span class="h3-text best-btn">이번주 인기 상품</span>  
+      </p>
       <div class="best-gallary-wrap on">
         <ul class="best-gallary">
           <li>
@@ -390,7 +380,7 @@
         <div class="event-slide-container">
           <div class="event-slide-wrap">
             <figure class="event-slide-slide">
-              <img src="./img/event02.webp" alt="이벤트2">
+              <img src="./img/m-banner01.webp" alt="이벤트2">
               <figcaption>
                 <span class="event-slide-item now">진행중</span>
                 <p class="event-slide-item-title">화리케인 치킨봉 <br> 리뷰 이벤트</p>
@@ -398,15 +388,15 @@
               </figcaption>
             </figure>
             <figure class="event-slide-slide">
-              <img src="./img/event01.webp" alt="이벤트1">
+              <img src="./img/m-banner02.webp" alt="이벤트1">
               <figcaption>
                 <span class="event-slide-item end">종료</span>
-                <p class="event-slide-item-title">SASE X <br> 황제성 X 쎄오준 <br> 라이브 쇼핑</p>
+                <p class="event-slide-item-title">SASE X 황제성 X 쎄오준 <br> 라이브 쇼핑</p>
                 <p class="event-slide-item-info">2022. 2. 9</p>
               </figcaption>
             </figure>  
             <figure class="event-slide-slide">
-              <img src="./img/event03.webp" alt="이벤트3">
+              <img src="./img/m-banner03.webp" alt="이벤트3">
               <figcaption>
                 <span class="event-slide-item end">종료</span>
                 <p class="event-slide-item-title">홈술메이트 출시기념 <br> 런칭특가</p>
@@ -511,37 +501,60 @@
     </section>
   </main>
 
-  <!-- 하단 푸터 -->
+  <!-- 푸터영역 -->
   <footer>
     <a href="#" title="위로 바로가기" class="footer-topbtn">TOP</a>
+    <p class="f-btn-wrap">
+      <a href="index.html?move_pc_screen=1" title="PC버전 바로가기" class="f-btn">PC버전 바로가기</a>
+    </p>
+    <div class="footer-menu">
+      <dl>
+        <dt>사세 이야기</dt>
+        <dd>브랜드 스토리</dd>
+        <dd>브랜드 라인업</dd>
+        <dd>CEO 인사말</dd>
+        <dd>연혁</dd>
+      </dl>
+      <dl>
+        <dt>고객센터</dt>
+        <dd>공지사항</dd>
+        <dd>자주하는 질문</dd>
+        <dd>1:1 문의</dd>
+        <dd>제휴문의</dd>
+      </dl>  
+      <dl>
+        <dt>제품소개</dt>
+        <dd>베스트</dd>
+        <dd>이번주 인기상품</dd>
+        <dd>치킨가공품</dd>
+        <dd>기타가공품</dd>
+      </dl>  
+    </div>
     <div class="footer-wrap">
-      <div>
-        <img src="./img/logo-white.webp" alt="로고">
-      </div>
-      <div class="footer-top">
-        <p class="footer-notice">
-          <a href="#none" title="공지사항">공지사항</a>
-          <a href="#none" title="공지사항">약관보기</a>
-          <a href="#none" title="공지사항">개인정보처리방침</a>
-          <a href="#none" title="공지사항">이메일무단수집거부</a>
-          <a href="#none" title="공지사항">문의게시판</a>
-        </p>
-        <p class="footer-info">
-          <span><strong>상호</strong> (주)사세</span> 
-          <span><strong>주소</strong> 충북 진천군 덕산읍 산수산단3로 11</span> 
-          <span><strong>대표</strong> 김광선</span> 
-          <span><strong>사업자번호</strong> 305-81-XXXXXXX</span> 
-        </p>
-        <address>COPYRIGHT (C) 2008 SASE ALL RIGHTS RESERVED.</address>
-      </div>
-      <div class="footer-tell">
+      <div class="footer-bottom">
+
         <p>
-          <span>고객센터</span>
-          <span>070-1234-5678</span>
-          <span>평일 09:00 - 18:00</span>
-          <span>토 / 일 / 공휴일 : OFF</span>
+          <strong>상호</strong>
+          (주)사세
         </p>
+  
+        <p>
+          <strong>대표자</strong>
+          김광선
+        </p>
+        
+        <p>
+          <strong>주소</strong>
+          충북 진천국 덕산읍 산수산단X로 XX
+        </p>
+        <p>
+          <strong>사업자등록번호</strong>
+          000-00-0000000
+        </p>
+  
+  
       </div>
+      <address>COPY &COPY; COPYRIGHT SASE 2022. ALLRIGHT RESERVED</address>
     </div>
   </footer>
   

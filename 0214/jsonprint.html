@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>캐스퍼 JSON</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>  
+  <!-- ajax -->
+  <style>
+    .table{
+      border-collapse: collapse;
+      width: 100%;
+    }
+    .table td:nth-child(2){
+      padding: 0px 20px;
+    }
+
+  </style>
+</head>
+
+
+<body>
+  <h2>캐스퍼 JSON</h2>
+  <p>닷홈 SQL 데이터베이스에 저장된 'test_drive'의 테이블 자료를 'json' 파일로 저장하여 자바스크립트로 출력하기.</p>
+
+  <a href="#" title="출력해보기" id="res">출력하기</a>
+
+  <div id="result">
+
+  <script>
+  //json 파일을 읽어서 출력하기
+  $(document).ready(function(){
+  
+    $.getJSON('test_drive.json', function(data){
+      
+      document.write(`<table class="table">`)
+      document.write(`<tr> 
+        <th>코드</th>  
+        <th>이름</th> 
+        <th>시승예약일</th>
+        <th>전화</th>
+        <th>SMS</th>
+        <th>지역</th>
+        <th>시승차량</th>
+        <th>보유차량</th>
+        </tr>`);
+
+      for(k=0; k<data.length; k++){
+        
+      }
+
+      for(let key in data){
+        for(i in data[key]){
+          if(data[key][i].sms == 1){
+            smsVal = '수신';
+          }else{
+            smsVal = '거부';
+          }
+
+          if(data[key][i].t_date.length == 10){
+            data[key][i].t_date = data[key][i].t_date.substr(0, 4) + '년' + data[key][i].t_date.substr(5, 2) + '월' + data[key][i].t_date.substr(8, 2) + '일';
+          }
+
+          document.write(`<tr> 
+            <td>${data[key][i].code}</td>  
+            <td>${data[key][i].name}</td> 
+            <td>${data[key][i].t_date}</td> 
+            <td>${data[key][i].phone}</td>
+            <td>${smsVal}</td>
+            <td>${data[key][i].region}</td>
+            <td>${data[key][i].s_car}</td>
+            <td>${data[key][i].my_car}</td>
+            </tr>`);
+        }
+      }
+    });
+
+    document.write(`</table>`)
+
+  
+  });
+  </script>
+
+  
+</body>
+</html>

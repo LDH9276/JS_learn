@@ -1,30 +1,26 @@
 
-//1. 변수 선언
-//메인메뉴 클릭시 서브메뉴가 나오게
-let gnb = document.querySelectorAll('.h-top-gnb > ul > li');
-
-for(let i=0; i<gnb.length; i++){
-    gnb[i].addEventListener('click', function(){
-      for(let j=0; j<gnb.length; j++){
-        let subMenues = gnb[j].querySelector('ul');
-        subMenues.style.display = 'none';
-      }
-      gnb[i].querySelector('ul').style.display = 'block';
-    });
-}
-
-//gnb 영역 밖 클릭시 서브메뉴가 사라지게
-let sub = document.querySelectorAll('.sub');
-let mainArea = document.querySelector('main')
-
-mainArea.addEventListener("click", function(){
-    for(let k=0; k<sub.length; k++){
-    sub[k].style.display = 'none';
-  }
-})
 
 
 $(function(){
+
+  let toggle = $('.h-top-toggle');
+  let gnb = $('.h-top-gnb > ul > li')
+
+  toggle.click(()=>{
+    if($(this).find('span').hasClass('act')){
+      $(this).find('span').removeClass('act');
+      $('.h-top-gnb').fadeOut(200);
+    }else{
+      $(this).find('span').addClass('act');
+      $('.h-top-gnb').fadeIn(200);
+    }
+  });
+
+  gnb.click(function(){
+      $(this).find('ul').slideToggle(200).parent().siblings().find('ul').slideUp(200);
+      $(this).find('a').toggleClass('act').parent().siblings().find('a').removeClass('act');
+  });
+
 
   //인트로 슬라이드 prev, next 버튼 클릭시 슬라이드
   const prev_btn = $('#intro-prev');
@@ -114,22 +110,15 @@ $(function(){
 
 
 // 브랜드 탭메뉴
-let tabfirst = document.querySelector('.brand-tab-item > li');
-let tab_item = document.querySelectorAll('.brand-tab-item > li');
-tabfirst.style.display ="block";
-let tab_list = document.querySelectorAll('.brand-tab-con > li');
+let tab_mnu = $('.brand-tab-con>li');
 
-for(let i=0; i<tab_item.length; i++){
-  tab_list[i].querySelector('a').addEventListener('click', (e)=>{
-    e.preventDefault();
-    for(let j=0; j<tab_item.length; j++){
-      tab_item[j].style.display = 'none';
-      tab_item[i].style.display = 'block';
-      tab_list[j].classList.remove('on');
-      tab_list[i].classList.add('on');
-    }
-  });
-}
+tab_mnu.first().find('div').css({'display':'block'})
+
+tab_mnu.click(function(){
+  $(this).toggleClass('on').siblings().removeClass('on');
+  $(this).find('div').slideToggle(600).parent().siblings().find('div').slideUp(600);
+  return false;
+})
 
 // 인기상품 탭메뉴
 let gall_btn = document.querySelectorAll('.best-btn');
@@ -188,8 +177,8 @@ function eventSlide(n){
 
 // 버튼 클릭시 함수실행
 eventPrevBtn.addEventListener('click', ()=>{
-  if(count < 0){
-    return;
+  if(count < 1){
+    count = 3;
   } else {
     eventSlide(count -1);
   }
@@ -198,16 +187,17 @@ eventNextBtn.addEventListener('click', ()=>{
   if(count < slideNumber -1){
     eventSlide(count +1);}
   else{
-    return;
+    eventSlide(count = 0);
   }
 });
+
 
 // 자동 함수실행
 let eTimer = setInterval(function(){
   if(count < slideNumber -1){
     eventSlide(count +1);}
   else{
-    return;
+    eventSlide(count = 0);
   }
 }, 4000)
 
@@ -220,7 +210,7 @@ eventWrap.addEventListener('mouseleave', ()=>{
     if(count < slideNumber -1){
       eventSlide(count +1);}
     else{
-      return;
+      eventSlide(count = 0);
     }
   }, 4000)
 });
